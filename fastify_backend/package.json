@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "@fastify/static": "^6.5.0",
+    "dotenv": "^16.0.2",
     "fastify": "^4.5.3"
   },
   "scripts": {
-    "start": "node main.js",
-    "devstart": "nodemon main.js"
+    "start": "",
+    "build": ""
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

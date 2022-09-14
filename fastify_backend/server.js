@@ -1,8 +1,9 @@
 //Source code for the backend itself.
 
-require('dotenv').config({path: '../.env'});
-const D2API = require('../bungie_api/d2_api_wrapper.js');
-const bungieAuthO = require('../bungie_api/authO_code.js');
+require('dotenv').config({path: '.env'});
+const path = require ('path');
+const D2API = require('./bungie_api/d2_api_wrapper.js');
+const bungieAuthO = require('./bungie_api/authO.js');
 const fastify = require('fastify')({
     logger: true
 });
@@ -14,16 +15,19 @@ this way, when a user logs in via a link on the webpage going to bungie "not via
 the redirect goes back to the server, which then will connect the bungie API Response to the user's session id. that way the token stays in server.
 
 
-/*
+*/
+fastify.register(require('@fastify/static'), {
+    root: path.join(__dirname, '..', '/react_frontend/build')
+});
+
 fastify.get('/', async (request, reply) => {
-    return {hello: "world"};
+    return {hello: "world!"}
 });
 
 fastify.listen({ port: process.env.PORT_NUMBER }, function(err, address){
     if(err){
         fastify.log.error(err);
+        fastify.log(address);
         process.exit(1);
     }
-    console.log("hello world!");
 })
-*/
