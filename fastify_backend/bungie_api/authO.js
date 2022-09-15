@@ -2,9 +2,10 @@
 // As well as the get/post requests for interaction
 
 const crypto = require('crypto');
+const axios = require('axios');
 require('dotenv').config({path: '../.env'});
-let bungie_root = "https://www.bungie.net";
-let api_root = bungie_root+"/Platform";
+const bungie_root = "https://www.bungie.net";
+const api_root = bungie_root+"/Platform";
 let auth_url = new URL(bungie_root+"/en/OAuth/Authorize");
 let token_url = new URL(api_root+"/App/OAuth/token/");
 let refresh_url = new URL(api_root+"/App/OAuth/token/");
@@ -18,7 +19,7 @@ let refresh_url = new URL(api_root+"/App/OAuth/token/");
 // Note: this may change based on notes from server.js
 function AuthOLoginRedirect(request, response){
     request_body = {
-        client_id:process.env.BUNGIE_CLIENT_ID,
+        client_id: process.env.BUNGIE_CLIENT_ID,
         response_type: "code",
         state: crypto.randomBytes(16).toString("base64")
     };
@@ -53,7 +54,7 @@ function APITokenRefresh(refresh_token){
     request_object = {
         method: "POST",
         url: refresh_url,
-        headers: {"X-API-Key":process.env.BUNGIE_API_KEY},
+        headers: {"X-API-Key": process.env.BUNGIE_API_KEY},
         data: new URLSearchParams({
             client_secret: process.env.BUNGIE_CLIENT_SECRET,
             client_id: process.env.BUNGIE_CLIENT_ID,
@@ -89,13 +90,12 @@ function APIPost(path, body, token){
 }
 function APIGet(path, token){
     request_object = {
-        method:"GET",
+        method: "GET",
         url: path,
         headers: {"X-API-Key":process.env.BUNGIE_API_KEY},
     };
     if(token)
         request_object.headers.Authorization = "Bearer "+token;
-    
     return axios(request_object);
 }
 

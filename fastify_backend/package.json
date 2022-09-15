@@ -1,12 +1,14 @@
 {
   "dependencies": {
     "@fastify/static": "^6.5.0",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "fastify": "^4.5.3"
   },
   "scripts": {
-    "start": "",
-    "build": ""
+    "start": "node server.js",
+    "build": "",
+    "devstart": "nodemon server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
