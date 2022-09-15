@@ -3,13 +3,15 @@
     "@fastify/cookie": "^8.1.0",
     "@fastify/session": "^10.0.0",
     "@fastify/static": "^6.5.0",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "fastify": "^4.5.3",
     "fastify-cookie": "^5.7.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "build": "mpm install -g"
+    "start": "node server.js",
+    "build": "",
+    "devstart": "nodemon server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

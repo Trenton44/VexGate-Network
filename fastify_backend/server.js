@@ -8,6 +8,8 @@ const fastify = require('fastify')({
     logger: true
 });
 
+const bungie_root = "https://www.bungie.net";
+const api_root = bungie_root+"/Platform";
 // So it turns out DestinyItemManager handles things in local storage, which makes sense. But I dont wanna do that, so we're gonna proceed as normal.
 /* However, it seems my earlier method is a bit janky, so we're going to attempt to tidy up this situation with the following:
 when a user access the webpage, server should check for an existing cookie, with our own session Id. if none exists, we make one for this user.
@@ -16,18 +18,22 @@ the redirect goes back to the server, which then will connect the bungie API Res
 
 
 */
-fastify.register(require('@fastify/static'), {
-    root: path.join(__dirname, '..', '/react_frontend/build')
+fastify.get('/bnet_auth_response', async (request, reply) => {
+    bungieAuthO.AuthOLoginRedirect(request, reply);
 });
 
-fastify.get('/', async (request, reply) => {
-    return {hello: "world!"}
+fastify.get('/test', function(request, reply) {
+    console.log("requesting manifest from bungie");
+    bungieAuthO.APIGet(api_root+"/Destiny2/Manifest/")
+    .then(function(result){
+        reply.send(result.data);
+    }).catch(function(error){
+        reply.send(error.data);
+    }); 
 });
 
-fastify.listen({ port: process.env.PORT_NUMBER }, function(err, address){
+fastify.listen({ port: process.env.PORT_NUMBER, host: '0.0.0.0' }, function(err, address){
     if(err){
-        fastify.log.error(err);
-        fastify.log(address);
         process.exit(1);
     }
 })
