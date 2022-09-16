@@ -6,9 +6,9 @@ const axios = require('axios');
 require('dotenv').config({path: '../.env'});
 const bungie_root = "https://www.bungie.net";
 const api_root = bungie_root+"/Platform";
-let auth_url = new URL(bungie_root+"/en/OAuth/Authorize");
-let token_url = new URL(api_root+"/App/OAuth/token/");
-let refresh_url = new URL(api_root+"/App/OAuth/token/");
+const auth_url = bungie_root+"/en/OAuth/Authorize";
+const token_url = api_root+"/App/OAuth/token/";
+const refresh_url = api_root+"/App/OAuth/token/";
 
 
 
@@ -17,24 +17,19 @@ let refresh_url = new URL(api_root+"/App/OAuth/token/");
 // This function is intended, unlike the rest, to be used with fastify as a redirect function
 // the Bungie API doesn't allow for local server login, so to access and develop, a server on a webhost is required.
 // Note: this may change based on notes from server.js
-function AuthOLoginRedirect(request, response){
+function generateAuthORedirect(request){
     request_body = {
         client_id: process.env.BUNGIE_CLIENT_ID,
         response_type: "code",
         state: crypto.randomBytes(16).toString("base64")
     };
+    request.session.state = request_body.state;
     var request_body = new URLSearchParams(request_body);
-    response.redirect(auth_url);
+    let redirect_url = new URL(auth_url);
+    redirect_url.search = request_body;
+    return redirect_url;
 }
-//validate return response's state, destroys session if false
-function validateAuthOState(request, response){
-    if(request.query.state != request.session.state){
-        request.session.destroy();
-        //This is where we would return an error object
-        return false;
-    }
-    return true;
-}
+
 
 function APITokenRequest(authCode){
     let request_object = {
@@ -65,14 +60,16 @@ function APITokenRefresh(refresh_token){
     return axios(request_object);
 }
 //Saves the result of APITokenRefresh & APITokenRequest 
-function processAPITokenResponse(request, token_data){
-    /* Original code:
-        tokenData.tokenExpiration = new Date().getTime()+((tokenData.expires_in)*1000);
-        tokenData.refreshExpiration = new Date().getTime()+(tokenData.refresh_expires_in*1000);
-        request.session.cookie.maxAge = tokenData.refreshExpiration;
-        request.session.membership_id = tokenData.membership_id;
-        request.session.tokenData = encryptData(tokenData); 
-    */
+function processAPITokenResponse(request, api_response){
+    console.log(request);
+    request.session.authData = {
+        access_token: api_response.access_token,
+        token_type: api_response.token_type,
+        access_expiration: Date.now() + api_response.expires_in,
+        refresh_token: api_response.refresh_token,
+        refresh_exipration: Date.now() + api_response.refresh_expires_in
+   };
+   request.session.user = { membership_id: api_response.membership_id };
    return true;
 }
 
@@ -99,4 +96,4 @@ function APIGet(path, token){
     return axios(request_object);
 }
 
-module.exports = {AuthOLoginRedirect, validateAuthOState, APITokenRequest, APITokenRefresh, processAPITokenResponse, APIPost, APIGet};
+module.exports = {generateAuthORedirect, APITokenRequest, APITokenRefresh, processAPITokenResponse, APIPost, APIGet};
