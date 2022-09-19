@@ -1,6 +1,5 @@
 //Source code for the backend itself.
 
-
 const prettify = (promise) => {
     return promise
     .then(result => ([result, undefined]))
@@ -12,6 +11,7 @@ const fs = require('fs')
 const path = require ('path');
 const D2APIInterface = require('./bungie_api/api_interface.js');
 const D2APIWrapper = require('./bungie_api/d2_api_wrapper.js');
+const D2APISchemas = require('./schemas.js');
 let compiled_front_end = path.join(__dirname, '..', '/react_frontend/build');
 
 
@@ -20,10 +20,12 @@ const server_app = require('fastify')({
     http2: true,
     https: {
         allowHTTP1: true,
-        key: fs.readFileSync("/etc/pki/tls/private/fastify_backend_selfsigned.key"),
-        cert: fs.readFileSync("/etc/pki/tls/certs/fastify_backend_selfsigned.crt")
+        key: fs.readFileSync("/etc/pki/tls/private/fastify_selfsigned.key"),
+        cert: fs.readFileSync("/etc/pki/tls/certs/fastify_selfsigned.crt")
     }
 });
+
+
 server_app.register(require('@fastify/static'), { root: compiled_front_end });
 server_app.register(require('@fastify/cookie'));
 server_app.register(require('@fastify/session'), { secret: process.env.SESSION_SECRET });
@@ -43,7 +45,8 @@ server_app.get('/bnet_auth_request', async (request, reply) => {
     let redirect = D2APIInterface.generateAuthORedirect(request);
     reply.code(303).redirect(encodeURI(redirect));
 });
-server_app.get('/bnet_auth_response', async (request, reply) => {
+server_app.get('/bnet_auth_response', { schema: D2APISchemas.OAuthResponse }, async (request, reply) => {
+    console.log(request);
     if(request.session.state != decodeURIComponent(request.query.state)){
         request.session.destroy();
         //needs to return an error based on a schema. schemas are up next for implementation
