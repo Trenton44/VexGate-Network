@@ -56,10 +56,9 @@ server_app.get('/bnet_auth_response', async (request, reply) => {
 });
 
 server_app.get('/test', async (request, reply) => {
-    let id = request.session.user.membership_id;
     let token = request.session.authData.access_token;
-    let [result, error] = await prettify(D2APIWrapper.GetMembershipDataById(id, token));
-    if(error != undefined){ return error; }
+    let [result, error] = await prettify(D2APIWrapper.GetProfile());
+    if(error != undefined){ console.log(error); return error; }
     return result.data;
 });
 
