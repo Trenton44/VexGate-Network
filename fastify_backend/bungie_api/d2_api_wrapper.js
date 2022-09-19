@@ -2,9 +2,9 @@ const D2APIInterface = require('./api_interface.js');
 const bungie_root = "https://www.bungie.net";
 const api_root = bungie_root+"/Platform";
 
-
 // Functions categorized as "User" on the bnet API docs
-function GetCredentialTypesForTargetAccount(token, membership_id){
+
+async function GetCredentialTypesForTargetAccount(token, membership_id){
     let path = api_root+"/User/GetCredentialTypesForTargetAccount/"+membership_id+"/";
     return D2APIInterface.APIGet(path, token);
 };
@@ -32,20 +32,14 @@ function GetLinkedProfiles(token, membership_id, membership_type){
     return D2APIInterface.APIGet(path, token);
 };
 
-/*
-Takes the following parameters:
-access token
-a destiny membershipid
-a destiny membership type (BungieMembershipType enum)
-a list of components (Destiny.DestinyComponentType enum) Note: these should be a comma-separated list in the querystring parameter
-*/
-function GetProfile(token, destiny_membership_id, membership_type, components){
+function GetProfile(token, destiny_membership_id, components, membership_type){
     if(!membership_type) membership_type = "-1"; // -1 is the enum value for all membership types. hopefully remove this hardcoding later.
     let path = api_root + "/Destiny2/"+membership_type+"/Profile/"+destiny_membership_id+"/";
     let params = new URLSearchParams(components);
     path = new URL(path);
     path.search = params;
-    return D2APIInterface.APIGet(path, token);
+
+    return D2APIInterface.APIGet(path.toString(), token);
 
 };
 

@@ -10,7 +10,11 @@ const auth_url = bungie_root+"/en/OAuth/Authorize";
 const token_url = api_root+"/App/OAuth/token/";
 const refresh_url = api_root+"/App/OAuth/token/";
 
-
+const prettify = (promise) => {
+    return promise
+    .then(result => ([result, undefined]))
+    .catch(error => ([undefined, error]));
+};
 
 //All of these functions should probably have schema response validation implemented.
 
@@ -43,7 +47,7 @@ function APITokenRequest(authCode){
             code: authCode
         })
     };
-    return axios(request_object);
+    return prettify(axios(request_object));
 }
 function APITokenRefresh(refresh_token){
     request_object = {
@@ -57,7 +61,7 @@ function APITokenRefresh(refresh_token){
             refresh_token: refresh_token //this was decrypted in original code here, will need to add this functionality
         })
     };
-    return axios(request_object);
+    return prettify(axios(request_object));
 }
 //Saves the result of APITokenRefresh & APITokenRequest 
 function processAPITokenResponse(request, api_response){
@@ -82,7 +86,7 @@ function APIPost(path, body, token){
     };
     if(token)
         request_object.headers.Authorization = "Bearer "+token;
-    return axios(request_object);
+    return prettify(axios(request_object));
 }
 function APIGet(path, token){
     request_object = {
@@ -94,7 +98,7 @@ function APIGet(path, token){
         console.log("token exists.");
         request_object.headers.Authorization = "Bearer "+token;
     }
-    return axios(request_object);
+    return prettify(axios(request_object));
 }
 
 module.exports = {generateAuthORedirect, APITokenRequest, APITokenRefresh, processAPITokenResponse, APIPost, APIGet};
