@@ -1,7 +1,7 @@
 import React from 'react';
 
 function LoginPage(props){
-    return (<a href="/bnet_auth_request">{props.test}</a>);
+    return (<a href="/api/oAuthRequest">{props.test}</a>);
 }
 
 export default LoginPage;

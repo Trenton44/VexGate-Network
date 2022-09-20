@@ -3,25 +3,22 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter , Routes, Route, useParams } from "react-router-dom";
 //import Character from './character.js';
 import LoginPage from './login.js';
-
+import HomePage from './home.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-const Final = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<LoginPage test="beans" />}/>
-        <Route path='/login' element={<LoginPage test="bans" />}/>
-      </Routes>
-    </BrowserRouter>
-  );
+function Home(){
+  let { id } = useParams();
+  return(<HomePage user_id={ id } />);
 }
-
 
 root.render(
   <React.StrictMode>
-    <h1>Hello World!</h1>
-    <Final />
+    <BrowserRouter>
+      <Routes> 
+        <Route exact path='/' element={ <a href="/api/oAuthRequest">Login</a> }/>
+        <Route path='/login' element={<LoginPage test="Login" />} />
+        <Route path=':id' element={ <Home /> } />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );

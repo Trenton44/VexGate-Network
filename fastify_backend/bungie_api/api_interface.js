@@ -28,6 +28,7 @@ function generateAuthORedirect(request){
         state: crypto.randomBytes(16).toString("base64")
     };
     request.session.state = request_body.state;
+    console.log(request.session.state);
     var request_body = new URLSearchParams(request_body);
     let redirect_url = new URL(auth_url);
     redirect_url.search = request_body;
@@ -64,15 +65,15 @@ function APITokenRefresh(refresh_token){
     return prettify(axios(request_object));
 }
 //Saves the result of APITokenRefresh & APITokenRequest 
-function processAPITokenResponse(request, api_response){
-    request.session.authData = {
+function processAPITokenResponse(session_store, api_response){
+    session_store.authData = {
         access_token: api_response.access_token,
         token_type: api_response.token_type,
         access_expiration: Date.now() + api_response.expires_in,
         refresh_token: api_response.refresh_token,
         refresh_exipration: Date.now() + api_response.refresh_expires_in
    };
-   request.session.user = { membership_id: api_response.membership_id };
+   session_store.user = { membership_id: api_response.membership_id };
    return true;
 }
 
