@@ -1,18 +1,24 @@
-const D2APIInterface = require('./api_interface.js');
+
 const bungie_root = "https://www.bungie.net";
 const api_root = bungie_root+"/Platform";
+
+const prettify = (promise) => {
+    return promise
+    .then(result => ([result, undefined]))
+    .catch(error => ([undefined, error]));
+};
 
 // Functions categorized as "User" on the bnet API docs
 
 async function GetCredentialTypesForTargetAccount(token, membership_id){
     let path = api_root+"/User/GetCredentialTypesForTargetAccount/"+membership_id+"/";
-    return D2APIInterface.APIGet(path, token);
+    return get(path, token);
 };
 
 // Functions categorized as "Destiny2" on the bnet API docs
 function GetDestinyManifest(){
     let path = api_root+"/Destiny2/Manifest/";
-    return D2APIInterface.APIGet(path);
+    return get(path);
 };
 
 function SearchDestinyPlayerByBungieName(token, display_name, display_code, membership_type){
@@ -22,14 +28,14 @@ function SearchDestinyPlayerByBungieName(token, display_name, display_code, memb
         displayNameCode: display_code
     };
     let path = api_root+"/Destiny2/SearchDestinyPlayerByBungieName/"+membership_type+"/";
-    return D2APIInterface.APIPost(path, body, token);
+    return post(path, body, token);
 
 };
 
 function GetLinkedProfiles(token, membership_id, membership_type){
     if(!membership_type) membership_type = "-1"; // -1 is the enum value for all membership types. hopefully remove this hardcoding later.
     let path = api_root+"/Destiny2/"+membership_type+"/Profile/"+membership_id+"/LinkedProfiles/";
-    return D2APIInterface.APIGet(path, token);
+    return get(path, token);
 };
 
 function GetProfile(token, destiny_membership_id, components, membership_type){
@@ -39,17 +45,37 @@ function GetProfile(token, destiny_membership_id, components, membership_type){
     path = new URL(path);
     path.search = params;
 
-    return D2APIInterface.APIGet(path.toString(), token);
+    return get(path.toString(), token);
 
 };
 
 function GetMembershipDataById(token, membership_id, membership_type){
     if(!membership_type) membership_type = "-1"; // -1 is the enum value for all membership types. hopefully remove this hardcoding later.
     let path = api_root+"/User/GetMembershipsById/"+membership_id+"/"+membership_type+"/";
-    return D2APIInterface.APIGet(path, token);
+    return get(path, token);
 };
 
+//FUNCTIONS TO SIMPLIFY GET/POST REQUESTS TO API
+function get(path, token){
+    let request_object = {
+        method: "GET",
+        url: path,
+        headers: {"X-API-Key":process.env.BUNGIE_API_KEY},
+    };
+    if(token){ request_object.headers.Authorization = "Bearer "+token; }
+    return prettify(axios(request_object));
+}
 
+function post(path, body, token){
+    let request_object = {
+        method: "POST",
+        url: path,
+        headers: {"X-API-Key":process.env.BUNGIE_API_KEY},
+        data: body
+    };
+    if(token){ request_object.headers.Authorization = "Bearer "+token; }
+    return prettify(axios(request_object));
+}
 
 
 

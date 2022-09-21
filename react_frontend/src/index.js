@@ -17,7 +17,7 @@ root.render(
       <Routes> 
         <Route exact path='/' element={ <a href="/api/oAuthRequest">Login</a> }/>
         <Route path='/login' element={<LoginPage test="Login" />} />
-        <Route path=':id' element={ <Home /> } />
+        <Route path='/user/:id' element={ <Home /> } />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

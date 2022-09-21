@@ -3,15 +3,20 @@ import ActionButton from './action_button.js';
 class HomePage extends React.Component {
     constructor(props){
         super(props);
-        console.log(this.props.user_id);
-        this.state = {};
+        this.state = {d2_account_data: {}};
+    }
+    componentDidMount(){
+        fetch("/api/essentialPayload")
+        .then( (result) => result.json() )
+        .then( (result) => this.setState({d2_account_data: result}) )
+        .catch(function(error){
+            console.log(error);
+        });
     }
     render(){
+
         return(
-            <div>
-                <ActionButton path="/api/getCredentialTypes" />
-                <ActionButton path="/api/getLinkedProfiles" />
-            </div>
+            <p>{ JSON.stringify(this.state.d2_account_data) }</p>
         );
     }
     

@@ -8,7 +8,7 @@ class ActionButton extends React.Component {
     apiRequest = (e) => {
         let path = this.props.path; //apparently "this" is undefined here. not sure why.
         console.log(path);
-        fetch(path+"?"+ new URLSearchParams({membership_id: window.location.pathname.split("/")[1] }))
+        fetch(path+"?"+ new URLSearchParams({membership_id: window.location.pathname.split("/")[2] }))
         .then((results) => results.json())
         .then((results) => this.setState({api_request_results: results}));
     }
@@ -16,7 +16,7 @@ class ActionButton extends React.Component {
         return(
             <div>
                 <button onClick={this.apiRequest}>{this.props.path}</button>
-                <p>{this.state.api_request_results.toString()}</p>
+                <p>{ JSON.stringify(this.state.api_request_results) }</p>
             </div>
             
         ); 
