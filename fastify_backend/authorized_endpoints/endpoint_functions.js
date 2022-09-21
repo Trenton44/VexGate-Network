@@ -1,4 +1,7 @@
-const D2APIWrapper = require('./bungie_api/d2_api_wrapper.js');
+const path = require ('path');
+const D2APIWrapper = require(path.join(__dirname, '..', '/bungie_api/d2_api_wrapper.js'));
+const D2APIHelper = require(path.join(__dirname, '..', '/bungie_api/helper_functions.js'));
+const HelperFunc = require(path.join(__dirname, '..', 'endpoint_common_functions.js'));
 /*
     The flow of each of these functions should be as follows:
     -obtain user parameters from querystring, and token data from session
@@ -11,31 +14,21 @@ const D2APIWrapper = require('./bungie_api/d2_api_wrapper.js');
 */
 async function validateAccess(session_store, reply){
     if(!session_store.auth_data) //runs if auth data doesn't exist, null or undefined
-    return reply.code(400).send({error: "Not authorized to access"});
+        return reply.code(400).send({error: "Not authorized to access"});
     let at_expire = session_store.auth_data.access_expiration;
     let rt_expire = session_store.auth_data.refresh_exipration;
     if(Date.now() > at_expire){
         //console.log("Access token expired, requesting a new one.");
         if(Date.now() > rt_expire)
             return reply.code(400).send({error: "Refresh token expired, user will need to re-authenticate"});
-        let [result, error] = await requestRefreshToken(session_store.auth_data.refresh_token);
+        let [result, error] = await D2APIHelper.requestRefreshToken(session_store.auth_data.refresh_token);
         if(error != undefined)
-        return reply.code(400).send({error: "unable to refresh access, user will need to re-authenticate"});
-        saveToken(session_store, result.data);
+            return reply.code(400).send({error: "unable to refresh access, user will need to re-authenticate"});
+        HelperFunc.saveTokenData(session_store, result.data);
     }
     return true;
 }
-function saveTokenData(token_store, api_response){
-    token_store.auth_data = {
-        access_token: api_response.access_token,
-        token_type: api_response.token_type,
-        access_expiration: Date.now() + api_response.expires_in,
-        refresh_token: api_response.refresh_token,
-        refresh_exipration: Date.now() + api_response.refresh_expires_in
-   };
-   token_store.user_data = { membership_id: api_response.membership_id };
-   return true;
-}
+
 async function retrieveCharacterIds(request, reply){
     //smallest request i know to obtain the character ids.
     let id = request.query.d2_membership_id;
@@ -116,4 +109,4 @@ async function getMember(request, reply){
     //Use the D2 accounts to retrieve character id's
 }*/
 
-module.exports = {validateAccess, saveTokenData, retrieveCharacterIds, getCredentialTypes, getLinkedProfiles, getMember};
+module.exports = {validateAccess, retrieveCharacterIds, getCredentialTypes, getLinkedProfiles, getMember};

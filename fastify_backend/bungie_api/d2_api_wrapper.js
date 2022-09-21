@@ -1,12 +1,8 @@
+const axios = require('axios');
 
 const bungie_root = "https://www.bungie.net";
 const api_root = bungie_root+"/Platform";
 
-const prettify = (promise) => {
-    return promise
-    .then(result => ([result, undefined]))
-    .catch(error => ([undefined, error]));
-};
 
 // Functions categorized as "User" on the bnet API docs
 
@@ -63,7 +59,7 @@ function get(path, token){
         headers: {"X-API-Key":process.env.BUNGIE_API_KEY},
     };
     if(token){ request_object.headers.Authorization = "Bearer "+token; }
-    return prettify(axios(request_object));
+    return axios(request_object)
 }
 
 function post(path, body, token){
@@ -74,7 +70,7 @@ function post(path, body, token){
         data: body
     };
     if(token){ request_object.headers.Authorization = "Bearer "+token; }
-    return prettify(axios(request_object));
+    return axios(request_object)
 }
 
 
