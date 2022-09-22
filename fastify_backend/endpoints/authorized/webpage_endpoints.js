@@ -33,7 +33,7 @@ async function validateAccess(request, reply){
     request.log.info("User has requested access to an endpoint requiring authorization.");
     await helper.validateTokens(request.session)
     .catch( (error) => {
-        request.info.error(error);
+        //request.info.error(error);
         return reply.code(303).redirect("/login");
     });
 

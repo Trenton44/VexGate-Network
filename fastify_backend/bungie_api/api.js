@@ -44,7 +44,12 @@ function GetProfile(token, destiny_membership_id, components, membership_type){
     return get(path.toString(), token);
 
 };
-
+function GetCharacter(token, destiny_membership_id, character_id, components, membership_type){
+    let path = api_root + "/Destiny2/"+membership_type+"/Profile/"+destiny_membership_id+"/Character/"+character_id+"/";
+    path = new URL(path);
+    path.search = new URLSearchParams(components);
+    return get(path.toString(), token);
+}
 function GetMembershipDataById(token, membership_id, membership_type){
     if(!membership_type) membership_type = "-1"; // -1 is the enum value for all membership types. hopefully remove this hardcoding later.
     let path = api_root+"/User/GetMembershipsById/"+membership_id+"/"+membership_type+"/";
@@ -75,4 +80,4 @@ function post(path, body, token){
 
 
 
-module.exports = {GetDestinyManifest, GetCredentialTypesForTargetAccount, GetMembershipDataById, GetLinkedProfiles, GetProfile, SearchDestinyPlayerByBungieName};
+module.exports = {GetDestinyManifest, GetCredentialTypesForTargetAccount, GetCharacter, GetMembershipDataById, GetLinkedProfiles, GetProfile, SearchDestinyPlayerByBungieName};

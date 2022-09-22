@@ -1,7 +1,10 @@
 import React from 'react';
 
 function LoginPage(props){
-    return (<a href="/api/oAuthRequest">{props.test}</a>);
+    console.log("login accessed.");
+    return (
+        <a href="/api/oAuthRequest">Login</a>
+    );
 }
 
 export default LoginPage;

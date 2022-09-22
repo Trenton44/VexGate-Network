@@ -1,5 +1,6 @@
 import React from 'react';
-import './navigation_bar.css'
+import './navigation.css';
+
 class NavigationBar extends React.Component {
     constructor(props){
         super(props);
@@ -10,7 +11,7 @@ class NavigationBar extends React.Component {
     }
     render(){
         return(
-            <div id="test">
+            <div class="navigation_bar">
                 <button>Inventory</button>
                 <button>Profile</button>
                 <button>3D</button>
