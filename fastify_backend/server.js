@@ -19,9 +19,24 @@ const webpage_noauth_endpoints = require('./endpoints/unauthorized/webpage_endpo
 //Static file locations 
 const compiled_front_end = path.join(__dirname, '..', '/react_frontend/build');
 
+//Setup Logging for dev/production enviornments
+const loggerEnv = {
+    development: {
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                translateTime: 'HH:MM:ss Z',
+                ignore: 'pid,hostname'
+            }
+        }
+    },
+    production: true,
+    test: false
+}
+
 //Initialize fastify and require https connection
 const server_app = fastify({
-    logger: true,
+    logger: true, //loggerEnv[process.env.ENVIORNMENT] ?? true,
     https: {
         allowHTTP1: true,
         key: fs.readFileSync("/etc/pki/tls/private/fastify_selfsigned.key"),
@@ -52,7 +67,7 @@ server_app.register(fastifySession,{
             sslKey: process.env.SESSION_STORE_CERT,
             sslCert: process.env.SESSION_STORE_CERT,
         },
-        crypto: { secret: process.env.SESSION_STORE_SECRET }
+        //crypto: { secret: process.env.SESSION_STORE_SECRET }
     }),
 });
 

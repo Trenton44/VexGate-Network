@@ -1,7 +1,9 @@
 const path = require ('path');
+const fastify = require('fastify')
+
 const handler = require('./endpoint_handlers.js');
 const helper = require(path.join(__dirname, '..', 'common_functions.js'));
-const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/unique_functions.js'));
+const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/wrapper.js'));
 
 // Contains all webpages that require access to data from bungie api
 // pre-handler verifies 
@@ -9,8 +11,7 @@ const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/unique_fu
 //  -user has a membership_id
 // if user has no d2_membership_id, one is obtained before moving to endpoint, as it is required for some.
 // if authorization check fails, should reply with a redirect to the /login endpoint
-
-function webpageAuthorizedEndpoints(fastify, options, next){
+let webpageAuthorizedEndpoints = (fastify, options, next) => {
     //validate authorization and necessary data exist to proceed.
     fastify.addHook('preHandler', validateAccess);
 
@@ -20,41 +21,45 @@ function webpageAuthorizedEndpoints(fastify, options, next){
 
     //root should redirect to /user/:id by default. if user is not logged in, prehander will redirect to /login
     fastify.get('/', function(request, reply){ 
+        console.log("redirecting to /user");
         reply.code(303).redirect("/user/"+request.session.user_data.d2_account.id);
-     });
+    });
 
-     next();
+    next();
 }
 //validates access to the endpoints contained in this file.
+// redirects unauthorized access to /login
 async function validateAccess(request, reply){
+    console.log("user has requested access to a authorized endpoint.");
+    console.log("validating tokens");
     await helper.validateTokens(request.session)
-    .then( (result) => { return result; })
     .catch( (error) => {
-        //regardless of the error, we want the user to be redirected to /login.
+        console.log(error);
         return reply.code(303).redirect("/login");
     });
 
     //check for membership_id. this should be obtained with the access tokens
     // so if we're this far and it's missing, something's gone horribly wrong.
-    if(request.session.user_data.membership_id == undefined)
+    if(request.session.user_data.membership_id == undefined){
         return reply.code(303).redirect("/login");
-
+    }
+    
     // ensure that at least one d2 account has data stored in this session.
     // validating that passed data from the frontend matches the session's will be the problem of the endpoints,
     // we just want to ensure something is there as a minimum.
-    if(request.session.user_data.d2_account == undefined){
-        //no data found, but membership_id exists, so we will pull it from bungie.
-        return d2helper.getD2MembershipData(request.session.auth_data.access_token, request.session.user_data.membership_id)
-        .then( (result) => {
-            request.session.user_data.d2_account = result;
-            return true;
-        }).catch( (error) => {
-            //well, something went wrong, so user's gonna have to login.
-            return reply.code(303).redirect("/login");
-        });
-    }
-    //all is well, the user should be able to access everything.
-    return true;
+    if(request.session.user_data.d2_account != undefined)
+        return true;
+    
+    //no data found, but we know membership_id exists, so we will pull d2 data from bungie.
+    return d2helper.getD2MembershipData(request.session.auth_data.access_token, request.session.user_data.membership_id)
+    .then( (result) => {
+        request.session.user_data.d2_account = result;
+        return true;
+    }).catch( (error) => {
+        //well, something went wrong, so user's gonna have to login.
+        return reply.code(303).redirect("/login");
+    });
 }
+
 
 module.exports = webpageAuthorizedEndpoints;

@@ -1,17 +1,18 @@
 const path = require ('path');
+const fastify = require('fastify')
+
 const handler = require('./endpoint_handlers.js');
 const helper = require(path.join(__dirname, '..', 'common_functions.js'));
-const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/unique_functions.js'));
+const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/wrapper.js'));
 
 // Contains all endpoints that require bungie api authorization to access
 // prehandler at start verifies that autorization is granted, returns error otherwise.
 // These endpoints should only be used by fronted to obtain data, not load webpages.
-function apiAuthorizedEndpoints(fastify, options, next){
+let apiAuthorizedEndpoints = (fastify, options, next) => {
     //returns error if validation fails.
     fastify.addHook('preHandler', validateAccess);
 
     //endpoints accessible to appliation
-
     //Catch all 404 response
     fastify.get('/api/*', async (request, reply) => { return reply.code(404).send({error: "endpoint not found."}); });
 
