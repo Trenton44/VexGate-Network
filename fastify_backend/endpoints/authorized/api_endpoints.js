@@ -13,6 +13,8 @@ let apiAuthorizedEndpoints = (fastify, options, next) => {
     fastify.addHook('preHandler', validateAccess);
 
     //endpoints accessible to appliation
+    fastify.get('/api/characterIds', handler.api_characterIds); //needs a schema verifying request had d2_membership_id as a querystring
+
     //Catch all 404 response
     fastify.get('/api/*', async (request, reply) => { return reply.code(404).send({error: "endpoint not found."}); });
 

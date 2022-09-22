@@ -1,5 +1,5 @@
 const path = require ('path');
-const fastify = require('fastify')
+const fastify = require('fastify') 
 
 const handler = require('./endpoint_handlers.js');
 const helper = require(path.join(__dirname, '..', 'common_functions.js'));
@@ -30,11 +30,10 @@ let webpageAuthorizedEndpoints = (fastify, options, next) => {
 //validates access to the endpoints contained in this file.
 // redirects unauthorized access to /login
 async function validateAccess(request, reply){
-    console.log("user has requested access to a authorized endpoint.");
-    console.log("validating tokens");
+    request.log.info("User has requested access to an endpoint requiring authorization.");
     await helper.validateTokens(request.session)
     .catch( (error) => {
-        console.log(error);
+        request.info.error(error);
         return reply.code(303).redirect("/login");
     });
 
@@ -50,13 +49,13 @@ async function validateAccess(request, reply){
     if(request.session.user_data.d2_account != undefined)
         return true;
     
-    //no data found, but we know membership_id exists, so we will pull d2 data from bungie.
+    request.log.warn("no data found, but we know membership_id exists, so we will pull d2 data from bungie.")
     return d2helper.getD2MembershipData(request.session.auth_data.access_token, request.session.user_data.membership_id)
     .then( (result) => {
         request.session.user_data.d2_account = result;
         return true;
     }).catch( (error) => {
-        //well, something went wrong, so user's gonna have to login.
+        request.log.error("well, something went wrong obtaining d2_membership_id, so you need to re-authenticate.");
         return reply.code(303).redirect("/login");
     });
 }

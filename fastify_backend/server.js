@@ -36,7 +36,7 @@ const loggerEnv = {
 
 //Initialize fastify and require https connection
 const server_app = fastify({
-    logger: true, //loggerEnv[process.env.ENVIORNMENT] ?? true,
+    logger: loggerEnv[process.env.ENVIORNMENT] ?? true,
     https: {
         allowHTTP1: true,
         key: fs.readFileSync("/etc/pki/tls/private/fastify_selfsigned.key"),

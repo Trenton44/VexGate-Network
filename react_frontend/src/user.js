@@ -13,7 +13,7 @@ class UserPage extends React.Component {
     }
     componentDidMount(){
         //api endpoint should return a list of character ids.
-        fetch("/api/getCharacterIds?d2_id="+this.state.d2_id)
+        fetch("/api/characterIds?id="+this.state.d2_id)
         .then( (result) => result.json() )
         .then( (result) => {
             console.log(result);
