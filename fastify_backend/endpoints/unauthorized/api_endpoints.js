@@ -19,7 +19,8 @@ let apiUnauthorizedEndpoints = (fastify, options, next) => {
         let [url, state] = d2helper.AuthORedirectURL();
         request.session.state = state;
         console.log(request.session.state);
-        reply.code(303).redirect(url);
+        return reply.redirect(url);
+        
     });
     fastify.get('/api/oAuthResponse', handler.oAuthResponse);
 

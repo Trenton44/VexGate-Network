@@ -11,8 +11,6 @@ async function oAuthResponse(request, reply){
     .then( (result) => { 
         //save or overwrite session's token data
         helper.saveTokenData(request.session, result.data); 
-        console.log(request.session.auth_data);
-        console.log(request.session.user_data);
         //redirect to root, which will cause prehandler to obtain d2_membership_id, and root will reroute to /user/:id
         return reply.code(303).redirect("/");
     }).catch( (error) => { 

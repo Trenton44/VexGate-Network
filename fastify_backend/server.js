@@ -51,6 +51,7 @@ server_app.register(fastifySession,{
     secret: process.env.SESSION_SECRET,
     cookieName: "d2_api",
     cookiePrefix: "s:", //for compatibility with express-session
+    saveUninitialized: true,
     cookie: {
         path: "/",
         maxAge: 3600000, //1 Hour in milliseconds
