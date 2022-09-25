@@ -1,0 +1,3711 @@
+"responses": {
+    "Applications.ApiUsage": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Applications.ApiUsage"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "IEnumerableOfApplication": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Applications.Application"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "User.GeneralUser": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/User.GeneralUser"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEDictionaryOfBungieCredentialTypeAndstring": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "integer",
+                  "description": "The types of credentials the Accounts system supports. This is the external facing enum used in place of the internal-only Bungie.SharedDefinitions.CredentialType.",
+                  "format": "byte",
+                  "x-enum-reference": {
+                    "$ref": "#/components/schemas/BungieCredentialType"
+                  },
+                  "x-enum-is-bitmask": false
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfGetCredentialTypesForAccountResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/User.Models.GetCredentialTypesForAccountResponse"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfUserTheme": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Config.UserTheme"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "User.UserMembershipData": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/User.UserMembershipData"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "User.HardLinkedUserMembership": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/User.HardLinkedUserMembership"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "User.UserSearchResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/User.UserSearchResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Content.Models.ContentTypeDescription": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Content.Models.ContentTypeDescription"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Content.ContentItemPublicContract": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Content.ContentItemPublicContract"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfContentItemPublicContract": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfContentItemPublicContract"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "IReadOnlyCollectionOfContentItemPublicContract": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Content.NewsArticleRssResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Content.NewsArticleRssResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Forum.PostSearchResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Forum.PostSearchResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "int64": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfTagResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tags.Models.Contracts.TagResponse"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEListOfForumRecruitmentDetail": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Forum.ForumRecruitmentDetail"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DictionaryOfint32Andstring": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfGroupTheme": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Config.GroupTheme"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "boolean": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "boolean"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfGroupV2Card": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupsV2.GroupV2Card"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupSearchResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupSearchResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEListOfGroupOptionalConversation": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupsV2.GroupOptionalConversation"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "int32": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfGroupMember": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfGroupMember"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupMemberLeaveResult": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupMemberLeaveResult"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfGroupBan": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfGroupBan"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfGroupMemberApplication": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfGroupMemberApplication"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfEntityActionResult": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Entities.EntityActionResult"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GetGroupsForMemberResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GetGroupsForMemberResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupMembershipSearchResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupMembershipSearchResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupPotentialMembershipSearchResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupPotentialMembershipSearchResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GroupsV2.GroupApplicationResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/GroupsV2.GroupApplicationResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEListOfPartnerOfferSkuHistoryResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tokens.PartnerOfferSkuHistoryResponse"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Tokens.PartnerRewardHistoryResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Tokens.PartnerRewardHistoryResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DictionaryOfstringAndBungieRewardDisplay": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Tokens.BungieRewardDisplay"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Config.DestinyManifest": {
+      "description": "DestinyManifest is the external-facing contract for just the properties needed by those calling the Destiny Platform.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Config.DestinyManifest"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Definitions.DestinyDefinition": {
+      "description": "Provides common properties for destiny definitions.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Definitions.DestinyDefinition"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "IEnumerableOfUserInfoCard": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/User.UserInfoCard"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyLinkedProfilesResponse": {
+      "description": "I know what you seek. You seek linked accounts. Found them, you have.\r\nThis contract returns a minimal amount of data about Destiny Accounts that are linked through your Bungie.Net account. We will not return accounts in this response whose",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyLinkedProfilesResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyProfileResponse": {
+      "description": "The response for GetDestinyProfile, with components for character and item-level data.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyProfileResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyCharacterResponse": {
+      "description": "The response contract for GetDestinyCharacter, with components that can be returned for character and item-level data.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyCharacterResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Milestones.DestinyMilestone": {
+      "description": "Represents a runtime instance of a user's milestone status. Live Milestone data should be combined with DestinyMilestoneDefinition data to show the user a picture of what is available for them to do in the game, and their status in regards to said \"things to do.\" Consider it a big, wonky to-do list, or Advisors 3.0 for those who remember the Destiny 1 API.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Milestones.DestinyMilestone"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Config.ClanBanner.ClanBannerSource": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Config.ClanBanner.ClanBannerSource"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyItemResponse": {
+      "description": "The response object for retrieving an individual instanced item. None of these components are relevant for an item that doesn't have an \"itemInstanceId\": for those, get your information from the DestinyInventoryDefinition.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyItemResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyVendorsResponse": {
+      "description": "A response containing all of the components for all requested vendors.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyVendorsResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyVendorResponse": {
+      "description": "A response containing all of the components for a vendor.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyVendorResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyPublicVendorsResponse": {
+      "description": "A response containing all valid components for the public Vendors endpoint.\r\n It is a decisively smaller subset of data compared to what we can get when we know the specific user making the request.\r\n If you want any of the other data - item details, whether or not you can buy it, etc... you'll have to call in the context of a character. I know, sad but true.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyPublicVendorsResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyCollectibleNodeDetailResponse": {
+      "description": "Returns the detailed information about a Collectible Presentation Node and any Collectibles that are direct descendants.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyCollectibleNodeDetailResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.DestinyEquipItemResults": {
+      "description": "The results of a bulk Equipping operation performed through the Destiny API.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.DestinyEquipItemResults"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Responses.DestinyItemChangeResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Responses.DestinyItemChangeResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyPostGameCarnageReportData": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportData"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ReadOnlyDictionaryOfstringAndDestinyHistoricalStatsDefinition": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyLeaderboardResults": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyLeaderboard"
+                  },
+                  "x-dictionary-key": {
+                    "type": "string"
+                  }
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ListOfDestinyClanAggregateStat": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyClanAggregateStat"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Definitions.DestinyEntitySearchResult": {
+      "description": "The results of a search for Destiny content. This will be improved on over time, I've been doing some experimenting to see what might be useful.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Definitions.DestinyEntitySearchResult"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyHistoricalStatsResults": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsByPeriod"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyActivityHistoryResults": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyActivityHistoryResults"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyHistoricalWeaponStatsData": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalWeaponStatsData"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.HistoricalStats.DestinyAggregateActivityResults": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.HistoricalStats.DestinyAggregateActivityResults"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Milestones.DestinyMilestoneContent": {
+      "description": "Represents localized, extended content related to Milestones. This is intentionally returned by a separate endpoint and not with Character-level Milestone data because we do not put localized data into standard Destiny responses, both for brevity of response and for caching purposes. If you really need this data, hit the Milestone Content endpoint.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Milestones.DestinyMilestoneContent"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DictionaryOfuint32AndDestinyPublicMilestone": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Destiny.Milestones.DestinyPublicMilestone"
+                },
+                "x-dictionary-key": {
+                  "type": "integer",
+                  "format": "uint32"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Advanced.AwaInitializeResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Advanced.AwaInitializeResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Destiny.Advanced.AwaAuthorizationResult": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Destiny.Advanced.AwaAuthorizationResult"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Trending.TrendingCategories": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Trending.TrendingCategories"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfTrendingEntry": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfTrendingEntry"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Trending.TrendingDetail": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Trending.TrendingDetail"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfFireteamSummary": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfFireteamSummary"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SearchResultOfFireteamResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/SearchResultOfFireteamResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Fireteam.FireteamResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Fireteam.FireteamResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Social.Friends.BungieFriendListResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Social.Friends.BungieFriendListResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Social.Friends.BungieFriendRequestListResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Social.Friends.BungieFriendRequestListResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Social.Friends.PlatformFriendResponse": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Social.Friends.PlatformFriendResponse"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEDictionaryOfstringAndstring": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Common.Models.CoreSettingsConfiguration": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "$ref": "#/components/schemas/Common.Models.CoreSettingsConfiguration"
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DictionaryOfstringAndCoreSystem": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Common.Models.CoreSystem"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CEListOfGlobalAlert": {
+      "description": "Look at the Response property for more information about the nature of this response",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "Response": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GlobalAlert"
+                }
+              },
+              "ErrorCode": {
+                "type": "integer",
+                "format": "int32",
+                "x-enum-reference": {
+                  "$ref": "#/components/schemas/Exceptions.PlatformErrorCodes"
+                },
+                "x-enum-is-bitmask": false
+              },
+              "ThrottleSeconds": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ErrorStatus": {
+                "type": "string"
+              },
+              "Message": {
+                "type": "string"
+              },
+              "MessageData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "x-dictionary-key": {
+                  "type": "string"
+                }
+              },
+              "DetailedErrorTrace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },

@@ -1,0 +1,3470 @@
+Name: Destiny.Responses.DestinyCharacterResponse
+Parsing Object Destiny.Responses.DestinyCharacterResponse
+Headers: 
+Property: inventory
+	Name: inventory
+	Parsing Object inventory
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyInventoryComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyInventoryComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyInventoryComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Inventory.DestinyInventoryComponent
+			Parsing Object components,schemas,Destiny.Entities.Inventory.DestinyInventoryComponent
+			Headers: 
+			Property: items
+				Name: items
+				Parsing Array items
+				Headers: 
+				it's a $ref
+					Name: items
+					Parsing Object items
+					Headers: 
+					Property: itemHash
+						Name: itemHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: itemHash Type: integer format: uint32
+					Property: itemInstanceId
+						Name: itemInstanceId
+						Parsing Basic Type
+						header_list: 
+						Name: itemInstanceId Type: integer format: int64
+					Property: quantity
+						Name: quantity
+						Parsing Basic Type
+						header_list: 
+						Name: quantity Type: integer format: int32
+					Property: bindStatus
+						Name: bindStatus
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: bindStatus Type: integer format: int32
+					Property: location
+						Name: location
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: location Type: integer format: int32
+					Property: bucketHash
+						Name: bucketHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: bucketHash Type: integer format: uint32
+					Property: transferStatus
+						Name: transferStatus
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: transferStatus Type: integer format: int32
+					Property: lockable
+						Name: lockable
+						Parsing Basic Type
+						header_list: 
+						Name: lockable Type: boolean format: undefined
+					Property: state
+						Name: state
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: state Type: integer format: int32
+					Property: overrideStyleItemHash
+						Name: overrideStyleItemHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: overrideStyleItemHash Type: integer format: uint32
+					Property: expirationDate
+						Name: expirationDate
+						Parsing Basic Type
+						header_list: 
+						Name: expirationDate Type: string format: date-time
+					Property: isWrapper
+						Name: isWrapper
+						Parsing Basic Type
+						header_list: 
+						Name: isWrapper Type: boolean format: undefined
+					Property: tooltipNotificationIndexes
+						Name: tooltipNotificationIndexes
+						Parsing Array tooltipNotificationIndexes
+						Headers: 
+						Must assume that items is of a property.
+							Name: tooltipNotificationIndexes
+							Parsing Basic Type
+							header_list: 
+							Name: tooltipNotificationIndexes Type: integer format: int32
+					Property: metricHash
+						Name: metricHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: metricHash Type: integer format: uint32
+					Property: metricObjective
+						Name: metricObjective
+						Parsing Object metricObjective
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+							Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: versionNumber
+						Name: versionNumber
+						Parsing Basic Type
+						header_list: 
+						Name: versionNumber Type: integer format: int32
+					Property: itemValueVisibility
+						Name: itemValueVisibility
+						Parsing Array itemValueVisibility
+						Headers: 
+						Must assume that items is of a property.
+							Name: itemValueVisibility
+							Parsing Basic Type
+							header_list: 
+							Name: itemValueVisibility Type: boolean format: undefined
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: character
+	Name: character
+	Parsing Object character
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCharacterComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCharacterComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCharacterComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Characters.DestinyCharacterComponent
+			Parsing Object components,schemas,Destiny.Entities.Characters.DestinyCharacterComponent
+			Headers: x-destiny-component-type-dependency
+			Property: membershipId
+				Name: membershipId
+				Parsing Basic Type
+				header_list: 
+				Name: membershipId Type: integer format: int64
+			Property: membershipType
+				Name: membershipType
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: membershipType Type: integer format: int32
+			Property: characterId
+				Name: characterId
+				Parsing Basic Type
+				header_list: 
+				Name: characterId Type: integer format: int64
+			Property: dateLastPlayed
+				Name: dateLastPlayed
+				Parsing Basic Type
+				header_list: 
+				Name: dateLastPlayed Type: string format: date-time
+			Property: minutesPlayedThisSession
+				Name: minutesPlayedThisSession
+				Parsing Basic Type
+				header_list: 
+				Name: minutesPlayedThisSession Type: integer format: int64
+			Property: minutesPlayedTotal
+				Name: minutesPlayedTotal
+				Parsing Basic Type
+				header_list: 
+				Name: minutesPlayedTotal Type: integer format: int64
+			Property: light
+				Name: light
+				Parsing Basic Type
+				header_list: 
+				Name: light Type: integer format: int32
+			Property: stats
+				Name: stats
+				Parsing Object stats
+				Headers: x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: stats
+					Parsing Basic Type
+					header_list: 
+					Name: stats Type: integer format: int32
+			Property: raceHash
+				Name: raceHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: raceHash Type: integer format: uint32
+			Property: genderHash
+				Name: genderHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: genderHash Type: integer format: uint32
+			Property: classHash
+				Name: classHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: classHash Type: integer format: uint32
+			Property: raceType
+				Name: raceType
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: raceType Type: integer format: int32
+			Property: classType
+				Name: classType
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: classType Type: integer format: int32
+			Property: genderType
+				Name: genderType
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: genderType Type: integer format: int32
+			Property: emblemPath
+				Name: emblemPath
+				Parsing Basic Type
+				header_list: 
+				Name: emblemPath Type: string format: undefined
+			Property: emblemBackgroundPath
+				Name: emblemBackgroundPath
+				Parsing Basic Type
+				header_list: 
+				Name: emblemBackgroundPath Type: string format: undefined
+			Property: emblemHash
+				Name: emblemHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: emblemHash Type: integer format: uint32
+			Property: emblemColor
+				Name: emblemColor
+				Parsing Object emblemColor
+				Headers: 
+				allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Misc.DestinyColor
+					Name: components,schemas,Destiny.Misc.DestinyColor
+					Parsing Object components,schemas,Destiny.Misc.DestinyColor
+					Headers: 
+					Property: red
+						Name: red
+						Parsing Basic Type
+						header_list: 
+						Name: red Type: string format: byte
+					Property: green
+						Name: green
+						Parsing Basic Type
+						header_list: 
+						Name: green Type: string format: byte
+					Property: blue
+						Name: blue
+						Parsing Basic Type
+						header_list: 
+						Name: blue Type: string format: byte
+					Property: alpha
+						Name: alpha
+						Parsing Basic Type
+						header_list: 
+						Name: alpha Type: string format: byte
+			Property: levelProgression
+				Name: levelProgression
+				Parsing Object levelProgression
+				Headers: 
+				allOf has a ref, stop here and send data to .#/components/schemas/Destiny.DestinyProgression
+					Name: components,schemas,Destiny.DestinyProgression
+					Parsing Object components,schemas,Destiny.DestinyProgression
+					Headers: 
+					Property: progressionHash
+						Name: progressionHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: progressionHash Type: integer format: uint32
+					Property: dailyProgress
+						Name: dailyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: dailyProgress Type: integer format: int32
+					Property: dailyLimit
+						Name: dailyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: dailyLimit Type: integer format: int32
+					Property: weeklyProgress
+						Name: weeklyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyProgress Type: integer format: int32
+					Property: weeklyLimit
+						Name: weeklyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyLimit Type: integer format: int32
+					Property: currentProgress
+						Name: currentProgress
+						Parsing Basic Type
+						header_list: 
+						Name: currentProgress Type: integer format: int32
+					Property: level
+						Name: level
+						Parsing Basic Type
+						header_list: 
+						Name: level Type: integer format: int32
+					Property: levelCap
+						Name: levelCap
+						Parsing Basic Type
+						header_list: 
+						Name: levelCap Type: integer format: int32
+					Property: stepIndex
+						Name: stepIndex
+						Parsing Basic Type
+						header_list: 
+						Name: stepIndex Type: integer format: int32
+					Property: progressToNextLevel
+						Name: progressToNextLevel
+						Parsing Basic Type
+						header_list: 
+						Name: progressToNextLevel Type: integer format: int32
+					Property: nextLevelAt
+						Name: nextLevelAt
+						Parsing Basic Type
+						header_list: 
+						Name: nextLevelAt Type: integer format: int32
+					Property: currentResetCount
+						Name: currentResetCount
+						Parsing Basic Type
+						header_list: 
+						Name: currentResetCount Type: integer format: int32
+					Property: seasonResets
+						Name: seasonResets
+						Parsing Array seasonResets
+						Headers: 
+						it's a $ref
+							Name: seasonResets
+							Parsing Object seasonResets
+							Headers: 
+							Property: season
+								Name: season
+								Parsing Basic Type
+								header_list: 
+								Name: season Type: integer format: int32
+							Property: resets
+								Name: resets
+								Parsing Basic Type
+								header_list: 
+								Name: resets Type: integer format: int32
+					Property: rewardItemStates
+						Name: rewardItemStates
+						Parsing Array rewardItemStates
+						Headers: 
+						Must assume that items is of a property.
+							Name: rewardItemStates
+							Parsing Basic Type
+							header_list: x-enum-reference
+							Name: rewardItemStates Type: integer format: int32
+			Property: baseCharacterLevel
+				Name: baseCharacterLevel
+				Parsing Basic Type
+				header_list: 
+				Name: baseCharacterLevel Type: integer format: int32
+			Property: percentToNextLevel
+				Name: percentToNextLevel
+				Parsing Basic Type
+				header_list: 
+				Name: percentToNextLevel Type: number format: float
+			Property: titleRecordHash
+				Name: titleRecordHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: titleRecordHash Type: integer format: uint32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: progressions
+	Name: progressions
+	Parsing Object progressions
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCharacterProgressionComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCharacterProgressionComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCharacterProgressionComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Characters.DestinyCharacterProgressionComponent
+			Parsing Object components,schemas,Destiny.Entities.Characters.DestinyCharacterProgressionComponent
+			Headers: x-destiny-component-type-dependency
+			Property: progressions
+				Name: progressions
+				Parsing Object progressions
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.DestinyProgression
+					Name: components,schemas,Destiny.DestinyProgression
+					Parsing Object components,schemas,Destiny.DestinyProgression
+					Headers: 
+					Property: progressionHash
+						Name: progressionHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: progressionHash Type: integer format: uint32
+					Property: dailyProgress
+						Name: dailyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: dailyProgress Type: integer format: int32
+					Property: dailyLimit
+						Name: dailyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: dailyLimit Type: integer format: int32
+					Property: weeklyProgress
+						Name: weeklyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyProgress Type: integer format: int32
+					Property: weeklyLimit
+						Name: weeklyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyLimit Type: integer format: int32
+					Property: currentProgress
+						Name: currentProgress
+						Parsing Basic Type
+						header_list: 
+						Name: currentProgress Type: integer format: int32
+					Property: level
+						Name: level
+						Parsing Basic Type
+						header_list: 
+						Name: level Type: integer format: int32
+					Property: levelCap
+						Name: levelCap
+						Parsing Basic Type
+						header_list: 
+						Name: levelCap Type: integer format: int32
+					Property: stepIndex
+						Name: stepIndex
+						Parsing Basic Type
+						header_list: 
+						Name: stepIndex Type: integer format: int32
+					Property: progressToNextLevel
+						Name: progressToNextLevel
+						Parsing Basic Type
+						header_list: 
+						Name: progressToNextLevel Type: integer format: int32
+					Property: nextLevelAt
+						Name: nextLevelAt
+						Parsing Basic Type
+						header_list: 
+						Name: nextLevelAt Type: integer format: int32
+					Property: currentResetCount
+						Name: currentResetCount
+						Parsing Basic Type
+						header_list: 
+						Name: currentResetCount Type: integer format: int32
+					Property: seasonResets
+						Name: seasonResets
+						Parsing Array seasonResets
+						Headers: 
+						it's a $ref
+							Name: seasonResets
+							Parsing Object seasonResets
+							Headers: 
+							Property: season
+								Name: season
+								Parsing Basic Type
+								header_list: 
+								Name: season Type: integer format: int32
+							Property: resets
+								Name: resets
+								Parsing Basic Type
+								header_list: 
+								Name: resets Type: integer format: int32
+					Property: rewardItemStates
+						Name: rewardItemStates
+						Parsing Array rewardItemStates
+						Headers: 
+						Must assume that items is of a property.
+							Name: rewardItemStates
+							Parsing Basic Type
+							header_list: x-enum-reference
+							Name: rewardItemStates Type: integer format: int32
+			Property: factions
+				Name: factions
+				Parsing Object factions
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Progression.DestinyFactionProgression
+					Name: components,schemas,Destiny.Progression.DestinyFactionProgression
+					Parsing Object components,schemas,Destiny.Progression.DestinyFactionProgression
+					Headers: 
+					Property: factionHash
+						Name: factionHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: factionHash Type: integer format: uint32
+					Property: factionVendorIndex
+						Name: factionVendorIndex
+						Parsing Basic Type
+						header_list: 
+						Name: factionVendorIndex Type: integer format: int32
+					Property: progressionHash
+						Name: progressionHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: progressionHash Type: integer format: uint32
+					Property: dailyProgress
+						Name: dailyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: dailyProgress Type: integer format: int32
+					Property: dailyLimit
+						Name: dailyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: dailyLimit Type: integer format: int32
+					Property: weeklyProgress
+						Name: weeklyProgress
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyProgress Type: integer format: int32
+					Property: weeklyLimit
+						Name: weeklyLimit
+						Parsing Basic Type
+						header_list: 
+						Name: weeklyLimit Type: integer format: int32
+					Property: currentProgress
+						Name: currentProgress
+						Parsing Basic Type
+						header_list: 
+						Name: currentProgress Type: integer format: int32
+					Property: level
+						Name: level
+						Parsing Basic Type
+						header_list: 
+						Name: level Type: integer format: int32
+					Property: levelCap
+						Name: levelCap
+						Parsing Basic Type
+						header_list: 
+						Name: levelCap Type: integer format: int32
+					Property: stepIndex
+						Name: stepIndex
+						Parsing Basic Type
+						header_list: 
+						Name: stepIndex Type: integer format: int32
+					Property: progressToNextLevel
+						Name: progressToNextLevel
+						Parsing Basic Type
+						header_list: 
+						Name: progressToNextLevel Type: integer format: int32
+					Property: nextLevelAt
+						Name: nextLevelAt
+						Parsing Basic Type
+						header_list: 
+						Name: nextLevelAt Type: integer format: int32
+					Property: currentResetCount
+						Name: currentResetCount
+						Parsing Basic Type
+						header_list: 
+						Name: currentResetCount Type: integer format: int32
+					Property: seasonResets
+						Name: seasonResets
+						Parsing Array seasonResets
+						Headers: 
+						it's a $ref
+							Name: seasonResets
+							Parsing Object seasonResets
+							Headers: 
+							Property: season
+								Name: season
+								Parsing Basic Type
+								header_list: 
+								Name: season Type: integer format: int32
+							Property: resets
+								Name: resets
+								Parsing Basic Type
+								header_list: 
+								Name: resets Type: integer format: int32
+					Property: rewardItemStates
+						Name: rewardItemStates
+						Parsing Array rewardItemStates
+						Headers: 
+						Must assume that items is of a property.
+							Name: rewardItemStates
+							Parsing Basic Type
+							header_list: x-enum-reference
+							Name: rewardItemStates Type: integer format: int32
+			Property: milestones
+				Name: milestones
+				Parsing Object milestones
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Milestones.DestinyMilestone
+					Name: components,schemas,Destiny.Milestones.DestinyMilestone
+					Parsing Object components,schemas,Destiny.Milestones.DestinyMilestone
+					Headers: 
+					Property: milestoneHash
+						Name: milestoneHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: milestoneHash Type: integer format: uint32
+					Property: availableQuests
+						Name: availableQuests
+						Parsing Array availableQuests
+						Headers: 
+						it's a $ref
+							Name: availableQuests
+							Parsing Object availableQuests
+							Headers: 
+							Property: questItemHash
+								Name: questItemHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: questItemHash Type: integer format: uint32
+							Property: status
+								Name: status
+								Parsing Object status
+								Headers: 
+								allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyQuestStatus
+									Name: components,schemas,Destiny.Quests.DestinyQuestStatus
+									Parsing Object components,schemas,Destiny.Quests.DestinyQuestStatus
+									Headers: 
+									Property: questHash
+										Name: questHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: questHash Type: integer format: uint32
+									Property: stepHash
+										Name: stepHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: stepHash Type: integer format: uint32
+									Property: stepObjectives
+										Name: stepObjectives
+										Parsing Array stepObjectives
+										Headers: 
+										it's a $ref
+											Name: stepObjectives
+											Parsing Object stepObjectives
+											Headers: 
+											Property: objectiveHash
+												Name: objectiveHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: objectiveHash Type: integer format: uint32
+											Property: destinationHash
+												Name: destinationHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: destinationHash Type: integer format: uint32
+											Property: activityHash
+												Name: activityHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: activityHash Type: integer format: uint32
+											Property: progress
+												Name: progress
+												Parsing Basic Type
+												header_list: 
+												Name: progress Type: integer format: int32
+											Property: completionValue
+												Name: completionValue
+												Parsing Basic Type
+												header_list: 
+												Name: completionValue Type: integer format: int32
+											Property: complete
+												Name: complete
+												Parsing Basic Type
+												header_list: 
+												Name: complete Type: boolean format: undefined
+											Property: visible
+												Name: visible
+												Parsing Basic Type
+												header_list: 
+												Name: visible Type: boolean format: undefined
+									Property: tracked
+										Name: tracked
+										Parsing Basic Type
+										header_list: 
+										Name: tracked Type: boolean format: undefined
+									Property: itemInstanceId
+										Name: itemInstanceId
+										Parsing Basic Type
+										header_list: 
+										Name: itemInstanceId Type: integer format: int64
+									Property: completed
+										Name: completed
+										Parsing Basic Type
+										header_list: 
+										Name: completed Type: boolean format: undefined
+									Property: redeemed
+										Name: redeemed
+										Parsing Basic Type
+										header_list: 
+										Name: redeemed Type: boolean format: undefined
+									Property: started
+										Name: started
+										Parsing Basic Type
+										header_list: 
+										Name: started Type: boolean format: undefined
+									Property: vendorHash
+										Name: vendorHash
+										Parsing Basic Type
+										header_list: 
+										Name: vendorHash Type: integer format: uint32
+							Property: activity
+								Name: activity
+								Parsing Object activity
+								Headers: 
+								allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Milestones.DestinyMilestoneActivity
+									Name: components,schemas,Destiny.Milestones.DestinyMilestoneActivity
+									Parsing Object components,schemas,Destiny.Milestones.DestinyMilestoneActivity
+									Headers: 
+									Property: activityHash
+										Name: activityHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: activityHash Type: integer format: uint32
+									Property: activityModeHash
+										Name: activityModeHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: activityModeHash Type: integer format: uint32
+									Property: activityModeType
+										Name: activityModeType
+										Parsing Basic Type
+										header_list: x-enum-values
+										Name: activityModeType Type: integer format: int32
+									Property: modifierHashes
+										Name: modifierHashes
+										Parsing Array modifierHashes
+										Headers: x-mapped-definition
+										Must assume that items is of a property.
+											Name: modifierHashes
+											Parsing Basic Type
+											header_list: 
+											Name: modifierHashes Type: integer format: uint32
+									Property: variants
+										Name: variants
+										Parsing Array variants
+										Headers: 
+										it's a $ref
+											Name: variants
+											Parsing Object variants
+											Headers: 
+											Property: activityHash
+												Name: activityHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: activityHash Type: integer format: uint32
+											Property: completionStatus
+												Name: completionStatus
+												Parsing Object completionStatus
+												Headers: 
+												allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityCompletionStatus
+													Name: components,schemas,Destiny.Milestones.DestinyMilestoneActivityCompletionStatus
+													Parsing Object components,schemas,Destiny.Milestones.DestinyMilestoneActivityCompletionStatus
+													Headers: 
+													Property: completed
+														Name: completed
+														Parsing Basic Type
+														header_list: 
+														Name: completed Type: boolean format: undefined
+													Property: phases
+														Name: phases
+														Parsing Array phases
+														Headers: 
+														it's a $ref
+															Name: phases
+															Parsing Object phases
+															Headers: 
+															Property: complete
+																Name: complete
+																Parsing Basic Type
+																header_list: 
+																Name: complete Type: boolean format: undefined
+															Property: phaseHash
+																Name: phaseHash
+																Parsing Basic Type
+																header_list: 
+																Name: phaseHash Type: integer format: uint32
+											Property: activityModeHash
+												Name: activityModeHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: activityModeHash Type: integer format: uint32
+											Property: activityModeType
+												Name: activityModeType
+												Parsing Basic Type
+												header_list: x-enum-values
+												Name: activityModeType Type: integer format: int32
+							Property: challenges
+								Name: challenges
+								Parsing Array challenges
+								Headers: 
+								it's a $ref
+									Name: challenges
+									Parsing Object challenges
+									Headers: 
+									Property: objective
+										Name: objective
+										Parsing Object objective
+										Headers: 
+										allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+											Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+											Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+											Headers: 
+											Property: objectiveHash
+												Name: objectiveHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: objectiveHash Type: integer format: uint32
+											Property: destinationHash
+												Name: destinationHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: destinationHash Type: integer format: uint32
+											Property: activityHash
+												Name: activityHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: activityHash Type: integer format: uint32
+											Property: progress
+												Name: progress
+												Parsing Basic Type
+												header_list: 
+												Name: progress Type: integer format: int32
+											Property: completionValue
+												Name: completionValue
+												Parsing Basic Type
+												header_list: 
+												Name: completionValue Type: integer format: int32
+											Property: complete
+												Name: complete
+												Parsing Basic Type
+												header_list: 
+												Name: complete Type: boolean format: undefined
+											Property: visible
+												Name: visible
+												Parsing Basic Type
+												header_list: 
+												Name: visible Type: boolean format: undefined
+					Property: activities
+						Name: activities
+						Parsing Array activities
+						Headers: 
+						it's a $ref
+							Name: activities
+							Parsing Object activities
+							Headers: 
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: challenges
+								Name: challenges
+								Parsing Array challenges
+								Headers: 
+								it's a $ref
+									Name: challenges
+									Parsing Object challenges
+									Headers: 
+									Property: objective
+										Name: objective
+										Parsing Object objective
+										Headers: 
+										allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+											Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+											Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+											Headers: 
+											Property: objectiveHash
+												Name: objectiveHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: objectiveHash Type: integer format: uint32
+											Property: destinationHash
+												Name: destinationHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: destinationHash Type: integer format: uint32
+											Property: activityHash
+												Name: activityHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: activityHash Type: integer format: uint32
+											Property: progress
+												Name: progress
+												Parsing Basic Type
+												header_list: 
+												Name: progress Type: integer format: int32
+											Property: completionValue
+												Name: completionValue
+												Parsing Basic Type
+												header_list: 
+												Name: completionValue Type: integer format: int32
+											Property: complete
+												Name: complete
+												Parsing Basic Type
+												header_list: 
+												Name: complete Type: boolean format: undefined
+											Property: visible
+												Name: visible
+												Parsing Basic Type
+												header_list: 
+												Name: visible Type: boolean format: undefined
+							Property: modifierHashes
+								Name: modifierHashes
+								Parsing Array modifierHashes
+								Headers: x-mapped-definition
+								Must assume that items is of a property.
+									Name: modifierHashes
+									Parsing Basic Type
+									header_list: 
+									Name: modifierHashes Type: integer format: uint32
+							Property: booleanActivityOptions
+								Name: booleanActivityOptions
+								Parsing Object booleanActivityOptions
+								Headers: x-dictionary-key
+								We can only assume this is a standard property to parse.
+									Name: booleanActivityOptions
+									Parsing Basic Type
+									header_list: 
+									Name: booleanActivityOptions Type: boolean format: undefined
+							Property: loadoutRequirementIndex
+								Name: loadoutRequirementIndex
+								Parsing Basic Type
+								header_list: 
+								Name: loadoutRequirementIndex Type: integer format: int32
+							Property: phases
+								Name: phases
+								Parsing Array phases
+								Headers: 
+								it's a $ref
+									Name: phases
+									Parsing Object phases
+									Headers: 
+									Property: complete
+										Name: complete
+										Parsing Basic Type
+										header_list: 
+										Name: complete Type: boolean format: undefined
+									Property: phaseHash
+										Name: phaseHash
+										Parsing Basic Type
+										header_list: 
+										Name: phaseHash Type: integer format: uint32
+					Property: values
+						Name: values
+						Parsing Object values
+						Headers: x-dictionary-key
+						We can only assume this is a standard property to parse.
+							Name: values
+							Parsing Basic Type
+							header_list: 
+							Name: values Type: number format: float
+					Property: vendorHashes
+						Name: vendorHashes
+						Parsing Array vendorHashes
+						Headers: x-mapped-definition
+						Must assume that items is of a property.
+							Name: vendorHashes
+							Parsing Basic Type
+							header_list: 
+							Name: vendorHashes Type: integer format: uint32
+					Property: vendors
+						Name: vendors
+						Parsing Array vendors
+						Headers: 
+						it's a $ref
+							Name: vendors
+							Parsing Object vendors
+							Headers: 
+							Property: vendorHash
+								Name: vendorHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: vendorHash Type: integer format: uint32
+							Property: previewItemHash
+								Name: previewItemHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: previewItemHash Type: integer format: uint32
+					Property: rewards
+						Name: rewards
+						Parsing Array rewards
+						Headers: 
+						it's a $ref
+							Name: rewards
+							Parsing Object rewards
+							Headers: 
+							Property: rewardCategoryHash
+								Name: rewardCategoryHash
+								Parsing Basic Type
+								header_list: 
+								Name: rewardCategoryHash Type: integer format: uint32
+							Property: entries
+								Name: entries
+								Parsing Array entries
+								Headers: 
+								it's a $ref
+									Name: entries
+									Parsing Object entries
+									Headers: 
+									Property: rewardEntryHash
+										Name: rewardEntryHash
+										Parsing Basic Type
+										header_list: 
+										Name: rewardEntryHash Type: integer format: uint32
+									Property: earned
+										Name: earned
+										Parsing Basic Type
+										header_list: 
+										Name: earned Type: boolean format: undefined
+									Property: redeemed
+										Name: redeemed
+										Parsing Basic Type
+										header_list: 
+										Name: redeemed Type: boolean format: undefined
+					Property: startDate
+						Name: startDate
+						Parsing Basic Type
+						header_list: 
+						Name: startDate Type: string format: date-time
+					Property: endDate
+						Name: endDate
+						Parsing Basic Type
+						header_list: 
+						Name: endDate Type: string format: date-time
+					Property: order
+						Name: order
+						Parsing Basic Type
+						header_list: 
+						Name: order Type: integer format: int32
+			Property: quests
+				Name: quests
+				Parsing Array quests
+				Headers: 
+				it's a $ref
+					Name: quests
+					Parsing Object quests
+					Headers: 
+					Property: questHash
+						Name: questHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: questHash Type: integer format: uint32
+					Property: stepHash
+						Name: stepHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: stepHash Type: integer format: uint32
+					Property: stepObjectives
+						Name: stepObjectives
+						Parsing Array stepObjectives
+						Headers: 
+						it's a $ref
+							Name: stepObjectives
+							Parsing Object stepObjectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: tracked
+						Name: tracked
+						Parsing Basic Type
+						header_list: 
+						Name: tracked Type: boolean format: undefined
+					Property: itemInstanceId
+						Name: itemInstanceId
+						Parsing Basic Type
+						header_list: 
+						Name: itemInstanceId Type: integer format: int64
+					Property: completed
+						Name: completed
+						Parsing Basic Type
+						header_list: 
+						Name: completed Type: boolean format: undefined
+					Property: redeemed
+						Name: redeemed
+						Parsing Basic Type
+						header_list: 
+						Name: redeemed Type: boolean format: undefined
+					Property: started
+						Name: started
+						Parsing Basic Type
+						header_list: 
+						Name: started Type: boolean format: undefined
+					Property: vendorHash
+						Name: vendorHash
+						Parsing Basic Type
+						header_list: 
+						Name: vendorHash Type: integer format: uint32
+			Property: uninstancedItemObjectives
+				Name: uninstancedItemObjectives
+				Parsing Object uninstancedItemObjectives
+				Headers: x-mapped-definition,x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: uninstancedItemObjectives
+					Parsing Array uninstancedItemObjectives
+					Headers: 
+					it's a $ref
+						Name: uninstancedItemObjectives
+						Parsing Object uninstancedItemObjectives
+						Headers: 
+						Property: objectiveHash
+							Name: objectiveHash
+							Parsing Basic Type
+							header_list: x-mapped-definition
+							Name: objectiveHash Type: integer format: uint32
+						Property: destinationHash
+							Name: destinationHash
+							Parsing Basic Type
+							header_list: x-mapped-definition
+							Name: destinationHash Type: integer format: uint32
+						Property: activityHash
+							Name: activityHash
+							Parsing Basic Type
+							header_list: x-mapped-definition
+							Name: activityHash Type: integer format: uint32
+						Property: progress
+							Name: progress
+							Parsing Basic Type
+							header_list: 
+							Name: progress Type: integer format: int32
+						Property: completionValue
+							Name: completionValue
+							Parsing Basic Type
+							header_list: 
+							Name: completionValue Type: integer format: int32
+						Property: complete
+							Name: complete
+							Parsing Basic Type
+							header_list: 
+							Name: complete Type: boolean format: undefined
+						Property: visible
+							Name: visible
+							Parsing Basic Type
+							header_list: 
+							Name: visible Type: boolean format: undefined
+			Property: uninstancedItemPerks
+				Name: uninstancedItemPerks
+				Parsing Object uninstancedItemPerks
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemPerksComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Headers: x-destiny-component-type-dependency
+					Property: perks
+						Name: perks
+						Parsing Array perks
+						Headers: 
+						it's a $ref
+							Name: perks
+							Parsing Object perks
+							Headers: 
+							Property: perkHash
+								Name: perkHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: perkHash Type: integer format: uint32
+							Property: iconPath
+								Name: iconPath
+								Parsing Basic Type
+								header_list: 
+								Name: iconPath Type: string format: undefined
+							Property: isActive
+								Name: isActive
+								Parsing Basic Type
+								header_list: 
+								Name: isActive Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+			Property: checklists
+				Name: checklists
+				Parsing Object checklists
+				Headers: x-mapped-definition,x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: checklists
+					Parsing Object checklists
+					Headers: x-dictionary-key
+					We can only assume this is a standard property to parse.
+						Name: checklists
+						Parsing Basic Type
+						header_list: 
+						Name: checklists Type: boolean format: undefined
+			Property: seasonalArtifact
+				Name: seasonalArtifact
+				Parsing Object seasonalArtifact
+				Headers: 
+				allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Artifacts.DestinyArtifactCharacterScoped
+					Name: components,schemas,Destiny.Artifacts.DestinyArtifactCharacterScoped
+					Parsing Object components,schemas,Destiny.Artifacts.DestinyArtifactCharacterScoped
+					Headers: 
+					Property: artifactHash
+						Name: artifactHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: artifactHash Type: integer format: uint32
+					Property: pointsUsed
+						Name: pointsUsed
+						Parsing Basic Type
+						header_list: 
+						Name: pointsUsed Type: integer format: int32
+					Property: resetCount
+						Name: resetCount
+						Parsing Basic Type
+						header_list: 
+						Name: resetCount Type: integer format: int32
+					Property: tiers
+						Name: tiers
+						Parsing Array tiers
+						Headers: 
+						it's a $ref
+							Name: tiers
+							Parsing Object tiers
+							Headers: 
+							Property: tierHash
+								Name: tierHash
+								Parsing Basic Type
+								header_list: 
+								Name: tierHash Type: integer format: uint32
+							Property: isUnlocked
+								Name: isUnlocked
+								Parsing Basic Type
+								header_list: 
+								Name: isUnlocked Type: boolean format: undefined
+							Property: pointsToUnlock
+								Name: pointsToUnlock
+								Parsing Basic Type
+								header_list: 
+								Name: pointsToUnlock Type: integer format: int32
+							Property: items
+								Name: items
+								Parsing Array items
+								Headers: 
+								it's a $ref
+									Name: items
+									Parsing Object items
+									Headers: 
+									Property: itemHash
+										Name: itemHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: itemHash Type: integer format: uint32
+									Property: isActive
+										Name: isActive
+										Parsing Basic Type
+										header_list: 
+										Name: isActive Type: boolean format: undefined
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: renderData
+	Name: renderData
+	Parsing Object renderData
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCharacterRenderComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCharacterRenderComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCharacterRenderComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Characters.DestinyCharacterRenderComponent
+			Parsing Object components,schemas,Destiny.Entities.Characters.DestinyCharacterRenderComponent
+			Headers: x-destiny-component-type-dependency
+			Property: customDyes
+				Name: customDyes
+				Parsing Array customDyes
+				Headers: 
+				it's a $ref
+					Name: customDyes
+					Parsing Object customDyes
+					Headers: 
+					Property: channelHash
+						Name: channelHash
+						Parsing Basic Type
+						header_list: 
+						Name: channelHash Type: integer format: uint32
+					Property: dyeHash
+						Name: dyeHash
+						Parsing Basic Type
+						header_list: 
+						Name: dyeHash Type: integer format: uint32
+			Property: customization
+				Name: customization
+				Parsing Object customization
+				Headers: 
+				allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Character.DestinyCharacterCustomization
+					Name: components,schemas,Destiny.Character.DestinyCharacterCustomization
+					Parsing Object components,schemas,Destiny.Character.DestinyCharacterCustomization
+					Headers: 
+					Property: personality
+						Name: personality
+						Parsing Basic Type
+						header_list: 
+						Name: personality Type: integer format: uint32
+					Property: face
+						Name: face
+						Parsing Basic Type
+						header_list: 
+						Name: face Type: integer format: uint32
+					Property: skinColor
+						Name: skinColor
+						Parsing Basic Type
+						header_list: 
+						Name: skinColor Type: integer format: uint32
+					Property: lipColor
+						Name: lipColor
+						Parsing Basic Type
+						header_list: 
+						Name: lipColor Type: integer format: uint32
+					Property: eyeColor
+						Name: eyeColor
+						Parsing Basic Type
+						header_list: 
+						Name: eyeColor Type: integer format: uint32
+					Property: hairColors
+						Name: hairColors
+						Parsing Array hairColors
+						Headers: 
+						Must assume that items is of a property.
+							Name: hairColors
+							Parsing Basic Type
+							header_list: 
+							Name: hairColors Type: integer format: uint32
+					Property: featureColors
+						Name: featureColors
+						Parsing Array featureColors
+						Headers: 
+						Must assume that items is of a property.
+							Name: featureColors
+							Parsing Basic Type
+							header_list: 
+							Name: featureColors Type: integer format: uint32
+					Property: decalColor
+						Name: decalColor
+						Parsing Basic Type
+						header_list: 
+						Name: decalColor Type: integer format: uint32
+					Property: wearHelmet
+						Name: wearHelmet
+						Parsing Basic Type
+						header_list: 
+						Name: wearHelmet Type: boolean format: undefined
+					Property: hairIndex
+						Name: hairIndex
+						Parsing Basic Type
+						header_list: 
+						Name: hairIndex Type: integer format: int32
+					Property: featureIndex
+						Name: featureIndex
+						Parsing Basic Type
+						header_list: 
+						Name: featureIndex Type: integer format: int32
+					Property: decalIndex
+						Name: decalIndex
+						Parsing Basic Type
+						header_list: 
+						Name: decalIndex Type: integer format: int32
+			Property: peerView
+				Name: peerView
+				Parsing Object peerView
+				Headers: 
+				allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Character.DestinyCharacterPeerView
+					Name: components,schemas,Destiny.Character.DestinyCharacterPeerView
+					Parsing Object components,schemas,Destiny.Character.DestinyCharacterPeerView
+					Headers: 
+					Property: equipment
+						Name: equipment
+						Parsing Array equipment
+						Headers: 
+						it's a $ref
+							Name: equipment
+							Parsing Object equipment
+							Headers: 
+							Property: itemHash
+								Name: itemHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: itemHash Type: integer format: uint32
+							Property: dyes
+								Name: dyes
+								Parsing Array dyes
+								Headers: 
+								it's a $ref
+									Name: dyes
+									Parsing Object dyes
+									Headers: 
+									Property: channelHash
+										Name: channelHash
+										Parsing Basic Type
+										header_list: 
+										Name: channelHash Type: integer format: uint32
+									Property: dyeHash
+										Name: dyeHash
+										Parsing Basic Type
+										header_list: 
+										Name: dyeHash Type: integer format: uint32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: activities
+	Name: activities
+	Parsing Object activities
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCharacterActivitiesComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCharacterActivitiesComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCharacterActivitiesComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Characters.DestinyCharacterActivitiesComponent
+			Parsing Object components,schemas,Destiny.Entities.Characters.DestinyCharacterActivitiesComponent
+			Headers: x-destiny-component-type-dependency
+			Property: dateActivityStarted
+				Name: dateActivityStarted
+				Parsing Basic Type
+				header_list: 
+				Name: dateActivityStarted Type: string format: date-time
+			Property: availableActivities
+				Name: availableActivities
+				Parsing Array availableActivities
+				Headers: 
+				it's a $ref
+					Name: availableActivities
+					Parsing Object availableActivities
+					Headers: 
+					Property: activityHash
+						Name: activityHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: activityHash Type: integer format: uint32
+					Property: isNew
+						Name: isNew
+						Parsing Basic Type
+						header_list: 
+						Name: isNew Type: boolean format: undefined
+					Property: canLead
+						Name: canLead
+						Parsing Basic Type
+						header_list: 
+						Name: canLead Type: boolean format: undefined
+					Property: canJoin
+						Name: canJoin
+						Parsing Basic Type
+						header_list: 
+						Name: canJoin Type: boolean format: undefined
+					Property: isCompleted
+						Name: isCompleted
+						Parsing Basic Type
+						header_list: 
+						Name: isCompleted Type: boolean format: undefined
+					Property: isVisible
+						Name: isVisible
+						Parsing Basic Type
+						header_list: 
+						Name: isVisible Type: boolean format: undefined
+					Property: displayLevel
+						Name: displayLevel
+						Parsing Basic Type
+						header_list: 
+						Name: displayLevel Type: integer format: int32
+					Property: recommendedLight
+						Name: recommendedLight
+						Parsing Basic Type
+						header_list: 
+						Name: recommendedLight Type: integer format: int32
+					Property: difficultyTier
+						Name: difficultyTier
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: difficultyTier Type: integer format: int32
+					Property: challenges
+						Name: challenges
+						Parsing Array challenges
+						Headers: 
+						it's a $ref
+							Name: challenges
+							Parsing Object challenges
+							Headers: 
+							Property: objective
+								Name: objective
+								Parsing Object objective
+								Headers: 
+								allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+									Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+									Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+									Headers: 
+									Property: objectiveHash
+										Name: objectiveHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: objectiveHash Type: integer format: uint32
+									Property: destinationHash
+										Name: destinationHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: destinationHash Type: integer format: uint32
+									Property: activityHash
+										Name: activityHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: activityHash Type: integer format: uint32
+									Property: progress
+										Name: progress
+										Parsing Basic Type
+										header_list: 
+										Name: progress Type: integer format: int32
+									Property: completionValue
+										Name: completionValue
+										Parsing Basic Type
+										header_list: 
+										Name: completionValue Type: integer format: int32
+									Property: complete
+										Name: complete
+										Parsing Basic Type
+										header_list: 
+										Name: complete Type: boolean format: undefined
+									Property: visible
+										Name: visible
+										Parsing Basic Type
+										header_list: 
+										Name: visible Type: boolean format: undefined
+					Property: modifierHashes
+						Name: modifierHashes
+						Parsing Array modifierHashes
+						Headers: x-mapped-definition
+						Must assume that items is of a property.
+							Name: modifierHashes
+							Parsing Basic Type
+							header_list: 
+							Name: modifierHashes Type: integer format: uint32
+					Property: booleanActivityOptions
+						Name: booleanActivityOptions
+						Parsing Object booleanActivityOptions
+						Headers: x-dictionary-key
+						We can only assume this is a standard property to parse.
+							Name: booleanActivityOptions
+							Parsing Basic Type
+							header_list: 
+							Name: booleanActivityOptions Type: boolean format: undefined
+					Property: loadoutRequirementIndex
+						Name: loadoutRequirementIndex
+						Parsing Basic Type
+						header_list: 
+						Name: loadoutRequirementIndex Type: integer format: int32
+			Property: currentActivityHash
+				Name: currentActivityHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: currentActivityHash Type: integer format: uint32
+			Property: currentActivityModeHash
+				Name: currentActivityModeHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: currentActivityModeHash Type: integer format: uint32
+			Property: currentActivityModeType
+				Name: currentActivityModeType
+				Parsing Basic Type
+				header_list: x-enum-values
+				Name: currentActivityModeType Type: integer format: int32
+			Property: currentActivityModeHashes
+				Name: currentActivityModeHashes
+				Parsing Array currentActivityModeHashes
+				Headers: x-mapped-definition
+				Must assume that items is of a property.
+					Name: currentActivityModeHashes
+					Parsing Basic Type
+					header_list: 
+					Name: currentActivityModeHashes Type: integer format: uint32
+			Property: currentActivityModeTypes
+				Name: currentActivityModeTypes
+				Parsing Array currentActivityModeTypes
+				Headers: 
+				Must assume that items is of a property.
+					Name: currentActivityModeTypes
+					Parsing Basic Type
+					header_list: x-enum-reference
+					Name: currentActivityModeTypes Type: integer format: int32
+			Property: currentPlaylistActivityHash
+				Name: currentPlaylistActivityHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: currentPlaylistActivityHash Type: integer format: uint32
+			Property: lastCompletedStoryHash
+				Name: lastCompletedStoryHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: lastCompletedStoryHash Type: integer format: uint32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: equipment
+	Name: equipment
+	Parsing Object equipment
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyInventoryComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyInventoryComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyInventoryComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Entities.Inventory.DestinyInventoryComponent
+			Parsing Object components,schemas,Destiny.Entities.Inventory.DestinyInventoryComponent
+			Headers: 
+			Property: items
+				Name: items
+				Parsing Array items
+				Headers: 
+				it's a $ref
+					Name: items
+					Parsing Object items
+					Headers: 
+					Property: itemHash
+						Name: itemHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: itemHash Type: integer format: uint32
+					Property: itemInstanceId
+						Name: itemInstanceId
+						Parsing Basic Type
+						header_list: 
+						Name: itemInstanceId Type: integer format: int64
+					Property: quantity
+						Name: quantity
+						Parsing Basic Type
+						header_list: 
+						Name: quantity Type: integer format: int32
+					Property: bindStatus
+						Name: bindStatus
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: bindStatus Type: integer format: int32
+					Property: location
+						Name: location
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: location Type: integer format: int32
+					Property: bucketHash
+						Name: bucketHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: bucketHash Type: integer format: uint32
+					Property: transferStatus
+						Name: transferStatus
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: transferStatus Type: integer format: int32
+					Property: lockable
+						Name: lockable
+						Parsing Basic Type
+						header_list: 
+						Name: lockable Type: boolean format: undefined
+					Property: state
+						Name: state
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: state Type: integer format: int32
+					Property: overrideStyleItemHash
+						Name: overrideStyleItemHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: overrideStyleItemHash Type: integer format: uint32
+					Property: expirationDate
+						Name: expirationDate
+						Parsing Basic Type
+						header_list: 
+						Name: expirationDate Type: string format: date-time
+					Property: isWrapper
+						Name: isWrapper
+						Parsing Basic Type
+						header_list: 
+						Name: isWrapper Type: boolean format: undefined
+					Property: tooltipNotificationIndexes
+						Name: tooltipNotificationIndexes
+						Parsing Array tooltipNotificationIndexes
+						Headers: 
+						Must assume that items is of a property.
+							Name: tooltipNotificationIndexes
+							Parsing Basic Type
+							header_list: 
+							Name: tooltipNotificationIndexes Type: integer format: int32
+					Property: metricHash
+						Name: metricHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: metricHash Type: integer format: uint32
+					Property: metricObjective
+						Name: metricObjective
+						Parsing Object metricObjective
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+							Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: versionNumber
+						Name: versionNumber
+						Parsing Basic Type
+						header_list: 
+						Name: versionNumber Type: integer format: int32
+					Property: itemValueVisibility
+						Name: itemValueVisibility
+						Parsing Array itemValueVisibility
+						Headers: 
+						Must assume that items is of a property.
+							Name: itemValueVisibility
+							Parsing Basic Type
+							header_list: 
+							Name: itemValueVisibility Type: boolean format: undefined
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: kiosks
+	Name: kiosks
+	Parsing Object kiosks
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyKiosksComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyKiosksComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyKiosksComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.Kiosks.DestinyKiosksComponent
+			Parsing Object components,schemas,Destiny.Components.Kiosks.DestinyKiosksComponent
+			Headers: x-destiny-component-type-dependency
+			Property: kioskItems
+				Name: kioskItems
+				Parsing Object kioskItems
+				Headers: x-mapped-definition,x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: kioskItems
+					Parsing Array kioskItems
+					Headers: 
+					it's a $ref
+						Name: kioskItems
+						Parsing Object kioskItems
+						Headers: 
+						Property: index
+							Name: index
+							Parsing Basic Type
+							header_list: 
+							Name: index Type: integer format: int32
+						Property: canAcquire
+							Name: canAcquire
+							Parsing Basic Type
+							header_list: 
+							Name: canAcquire Type: boolean format: undefined
+						Property: failureIndexes
+							Name: failureIndexes
+							Parsing Array failureIndexes
+							Headers: 
+							Must assume that items is of a property.
+								Name: failureIndexes
+								Parsing Basic Type
+								header_list: 
+								Name: failureIndexes Type: integer format: int32
+						Property: flavorObjective
+							Name: flavorObjective
+							Parsing Object flavorObjective
+							Headers: 
+							allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+								Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+								Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+								Headers: 
+								Property: objectiveHash
+									Name: objectiveHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: objectiveHash Type: integer format: uint32
+								Property: destinationHash
+									Name: destinationHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: destinationHash Type: integer format: uint32
+								Property: activityHash
+									Name: activityHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: activityHash Type: integer format: uint32
+								Property: progress
+									Name: progress
+									Parsing Basic Type
+									header_list: 
+									Name: progress Type: integer format: int32
+								Property: completionValue
+									Name: completionValue
+									Parsing Basic Type
+									header_list: 
+									Name: completionValue Type: integer format: int32
+								Property: complete
+									Name: complete
+									Parsing Basic Type
+									header_list: 
+									Name: complete Type: boolean format: undefined
+								Property: visible
+									Name: visible
+									Parsing Basic Type
+									header_list: 
+									Name: visible Type: boolean format: undefined
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: plugSets
+	Name: plugSets
+	Parsing Object plugSets
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyPlugSetsComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyPlugSetsComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyPlugSetsComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.PlugSets.DestinyPlugSetsComponent
+			Parsing Object components,schemas,Destiny.Components.PlugSets.DestinyPlugSetsComponent
+			Headers: x-destiny-component-type-dependency
+			Property: plugs
+				Name: plugs
+				Parsing Object plugs
+				Headers: x-mapped-definition,x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: plugs
+					Parsing Array plugs
+					Headers: 
+					it's a $ref
+						Name: plugs
+						Parsing Object plugs
+						Headers: 
+						Property: plugObjectives
+							Name: plugObjectives
+							Parsing Array plugObjectives
+							Headers: 
+							it's a $ref
+								Name: plugObjectives
+								Parsing Object plugObjectives
+								Headers: 
+								Property: objectiveHash
+									Name: objectiveHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: objectiveHash Type: integer format: uint32
+								Property: destinationHash
+									Name: destinationHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: destinationHash Type: integer format: uint32
+								Property: activityHash
+									Name: activityHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: activityHash Type: integer format: uint32
+								Property: progress
+									Name: progress
+									Parsing Basic Type
+									header_list: 
+									Name: progress Type: integer format: int32
+								Property: completionValue
+									Name: completionValue
+									Parsing Basic Type
+									header_list: 
+									Name: completionValue Type: integer format: int32
+								Property: complete
+									Name: complete
+									Parsing Basic Type
+									header_list: 
+									Name: complete Type: boolean format: undefined
+								Property: visible
+									Name: visible
+									Parsing Basic Type
+									header_list: 
+									Name: visible Type: boolean format: undefined
+						Property: plugItemHash
+							Name: plugItemHash
+							Parsing Basic Type
+							header_list: x-mapped-definition
+							Name: plugItemHash Type: integer format: uint32
+						Property: canInsert
+							Name: canInsert
+							Parsing Basic Type
+							header_list: 
+							Name: canInsert Type: boolean format: undefined
+						Property: enabled
+							Name: enabled
+							Parsing Basic Type
+							header_list: 
+							Name: enabled Type: boolean format: undefined
+						Property: insertFailIndexes
+							Name: insertFailIndexes
+							Parsing Array insertFailIndexes
+							Headers: 
+							Must assume that items is of a property.
+								Name: insertFailIndexes
+								Parsing Basic Type
+								header_list: 
+								Name: insertFailIndexes Type: integer format: int32
+						Property: enableFailIndexes
+							Name: enableFailIndexes
+							Parsing Array enableFailIndexes
+							Headers: 
+							Must assume that items is of a property.
+								Name: enableFailIndexes
+								Parsing Basic Type
+								header_list: 
+								Name: enableFailIndexes Type: integer format: int32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: presentationNodes
+	Name: presentationNodes
+	Parsing Object presentationNodes
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyPresentationNodesComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyPresentationNodesComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyPresentationNodesComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.Presentation.DestinyPresentationNodesComponent
+			Parsing Object components,schemas,Destiny.Components.Presentation.DestinyPresentationNodesComponent
+			Headers: x-destiny-component-type-dependency
+			Property: nodes
+				Name: nodes
+				Parsing Object nodes
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodeComponent
+					Name: components,schemas,Destiny.Components.Presentation.DestinyPresentationNodeComponent
+					Parsing Object components,schemas,Destiny.Components.Presentation.DestinyPresentationNodeComponent
+					Headers: 
+					Property: state
+						Name: state
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: state Type: integer format: int32
+					Property: objective
+						Name: objective
+						Parsing Object objective
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+							Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: progressValue
+						Name: progressValue
+						Parsing Basic Type
+						header_list: 
+						Name: progressValue Type: integer format: int32
+					Property: completionValue
+						Name: completionValue
+						Parsing Basic Type
+						header_list: 
+						Name: completionValue Type: integer format: int32
+					Property: recordCategoryScore
+						Name: recordCategoryScore
+						Parsing Basic Type
+						header_list: 
+						Name: recordCategoryScore Type: integer format: int32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: records
+	Name: records
+	Parsing Object records
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCharacterRecordsComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCharacterRecordsComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCharacterRecordsComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.Records.DestinyCharacterRecordsComponent
+			Parsing Object components,schemas,Destiny.Components.Records.DestinyCharacterRecordsComponent
+			Headers: x-destiny-component-type-dependency
+			Property: featuredRecordHashes
+				Name: featuredRecordHashes
+				Parsing Array featuredRecordHashes
+				Headers: x-mapped-definition
+				Must assume that items is of a property.
+					Name: featuredRecordHashes
+					Parsing Basic Type
+					header_list: 
+					Name: featuredRecordHashes Type: integer format: uint32
+			Property: records
+				Name: records
+				Parsing Object records
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Records.DestinyRecordComponent
+					Name: components,schemas,Destiny.Components.Records.DestinyRecordComponent
+					Parsing Object components,schemas,Destiny.Components.Records.DestinyRecordComponent
+					Headers: 
+					Property: state
+						Name: state
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: state Type: integer format: int32
+					Property: objectives
+						Name: objectives
+						Parsing Array objectives
+						Headers: 
+						it's a $ref
+							Name: objectives
+							Parsing Object objectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: intervalObjectives
+						Name: intervalObjectives
+						Parsing Array intervalObjectives
+						Headers: 
+						it's a $ref
+							Name: intervalObjectives
+							Parsing Object intervalObjectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: intervalsRedeemedCount
+						Name: intervalsRedeemedCount
+						Parsing Basic Type
+						header_list: 
+						Name: intervalsRedeemedCount Type: integer format: int32
+					Property: completedCount
+						Name: completedCount
+						Parsing Basic Type
+						header_list: 
+						Name: completedCount Type: integer format: int32
+					Property: rewardVisibilty
+						Name: rewardVisibilty
+						Parsing Array rewardVisibilty
+						Headers: 
+						Must assume that items is of a property.
+							Name: rewardVisibilty
+							Parsing Basic Type
+							header_list: 
+							Name: rewardVisibilty Type: boolean format: undefined
+			Property: recordCategoriesRootNodeHash
+				Name: recordCategoriesRootNodeHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: recordCategoriesRootNodeHash Type: integer format: uint32
+			Property: recordSealsRootNodeHash
+				Name: recordSealsRootNodeHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: recordSealsRootNodeHash Type: integer format: uint32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: collectibles
+	Name: collectibles
+	Parsing Object collectibles
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCollectiblesComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCollectiblesComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCollectiblesComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.Collectibles.DestinyCollectiblesComponent
+			Parsing Object components,schemas,Destiny.Components.Collectibles.DestinyCollectiblesComponent
+			Headers: x-destiny-component-type-dependency
+			Property: collectibles
+				Name: collectibles
+				Parsing Object collectibles
+				Headers: x-mapped-definition,x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Collectibles.DestinyCollectibleComponent
+					Name: components,schemas,Destiny.Components.Collectibles.DestinyCollectibleComponent
+					Parsing Object components,schemas,Destiny.Components.Collectibles.DestinyCollectibleComponent
+					Headers: 
+					Property: state
+						Name: state
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: state Type: integer format: int32
+			Property: collectionCategoriesRootNodeHash
+				Name: collectionCategoriesRootNodeHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: collectionCategoriesRootNodeHash Type: integer format: uint32
+			Property: collectionBadgesRootNodeHash
+				Name: collectionBadgesRootNodeHash
+				Parsing Basic Type
+				header_list: x-mapped-definition
+				Name: collectionBadgesRootNodeHash Type: integer format: uint32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Property: itemComponents
+	Name: itemComponents
+	Parsing Object itemComponents
+	Headers: 
+	allOf has a ref, stop here and send data to .#/components/schemas/DestinyItemComponentSetOfint64
+		Name: components,schemas,DestinyItemComponentSetOfint64
+		Parsing Object components,schemas,DestinyItemComponentSetOfint64
+		Headers: 
+		Property: instances
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemInstanceComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemInstanceComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemInstanceComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemInstanceComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemInstanceComponent
+					Headers: x-destiny-component-type-dependency
+					Property: damageType
+						Name: damageType
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: damageType Type: integer format: int32
+					Property: damageTypeHash
+						Name: damageTypeHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: damageTypeHash Type: integer format: uint32
+					Property: primaryStat
+						Name: primaryStat
+						Parsing Object primaryStat
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.DestinyStat
+							Name: components,schemas,Destiny.DestinyStat
+							Parsing Object components,schemas,Destiny.DestinyStat
+							Headers: 
+							Property: statHash
+								Name: statHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: statHash Type: integer format: uint32
+							Property: value
+								Name: value
+								Parsing Basic Type
+								header_list: 
+								Name: value Type: integer format: int32
+					Property: itemLevel
+						Name: itemLevel
+						Parsing Basic Type
+						header_list: 
+						Name: itemLevel Type: integer format: int32
+					Property: quality
+						Name: quality
+						Parsing Basic Type
+						header_list: 
+						Name: quality Type: integer format: int32
+					Property: isEquipped
+						Name: isEquipped
+						Parsing Basic Type
+						header_list: 
+						Name: isEquipped Type: boolean format: undefined
+					Property: canEquip
+						Name: canEquip
+						Parsing Basic Type
+						header_list: 
+						Name: canEquip Type: boolean format: undefined
+					Property: equipRequiredLevel
+						Name: equipRequiredLevel
+						Parsing Basic Type
+						header_list: 
+						Name: equipRequiredLevel Type: integer format: int32
+					Property: unlockHashesRequiredToEquip
+						Name: unlockHashesRequiredToEquip
+						Parsing Array unlockHashesRequiredToEquip
+						Headers: x-mapped-definition
+						Must assume that items is of a property.
+							Name: unlockHashesRequiredToEquip
+							Parsing Basic Type
+							header_list: 
+							Name: unlockHashesRequiredToEquip Type: integer format: uint32
+					Property: cannotEquipReason
+						Name: cannotEquipReason
+						Parsing Basic Type
+						header_list: x-enum-reference
+						Name: cannotEquipReason Type: integer format: int32
+					Property: breakerType
+						Name: breakerType
+						Parsing Basic Type
+						header_list: x-enum-values
+						Name: breakerType Type: integer format: int32
+					Property: breakerTypeHash
+						Name: breakerTypeHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: breakerTypeHash Type: integer format: uint32
+					Property: energy
+						Name: energy
+						Parsing Object energy
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceEnergy
+							Name: components,schemas,Destiny.Entities.Items.DestinyItemInstanceEnergy
+							Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemInstanceEnergy
+							Headers: 
+							Property: energyTypeHash
+								Name: energyTypeHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: energyTypeHash Type: integer format: uint32
+							Property: energyType
+								Name: energyType
+								Parsing Basic Type
+								header_list: x-enum-reference
+								Name: energyType Type: integer format: int32
+							Property: energyCapacity
+								Name: energyCapacity
+								Parsing Basic Type
+								header_list: 
+								Name: energyCapacity Type: integer format: int32
+							Property: energyUsed
+								Name: energyUsed
+								Parsing Basic Type
+								header_list: 
+								Name: energyUsed Type: integer format: int32
+							Property: energyUnused
+								Name: energyUnused
+								Parsing Basic Type
+								header_list: 
+								Name: energyUnused Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: renderData
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemRenderComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemRenderComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemRenderComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemRenderComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemRenderComponent
+					Headers: x-destiny-component-type-dependency
+					Property: useCustomDyes
+						Name: useCustomDyes
+						Parsing Basic Type
+						header_list: 
+						Name: useCustomDyes Type: boolean format: undefined
+					Property: artRegions
+						Name: artRegions
+						Parsing Object artRegions
+						Headers: x-dictionary-key
+						We can only assume this is a standard property to parse.
+							Name: artRegions
+							Parsing Basic Type
+							header_list: 
+							Name: artRegions Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: stats
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemStatsComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemStatsComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemStatsComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemStatsComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemStatsComponent
+					Headers: x-destiny-component-type-dependency
+					Property: stats
+						Name: stats
+						Parsing Object stats
+						Headers: x-mapped-definition,x-dictionary-key
+						additionalProperties is a schema ref: #/components/schemas/Destiny.DestinyStat
+							Name: components,schemas,Destiny.DestinyStat
+							Parsing Object components,schemas,Destiny.DestinyStat
+							Headers: 
+							Property: statHash
+								Name: statHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: statHash Type: integer format: uint32
+							Property: value
+								Name: value
+								Parsing Basic Type
+								header_list: 
+								Name: value Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: sockets
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemSocketsComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemSocketsComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemSocketsComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemSocketsComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemSocketsComponent
+					Headers: x-destiny-component-type-dependency
+					Property: sockets
+						Name: sockets
+						Parsing Array sockets
+						Headers: 
+						it's a $ref
+							Name: sockets
+							Parsing Object sockets
+							Headers: 
+							Property: plugHash
+								Name: plugHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: plugHash Type: integer format: uint32
+							Property: isEnabled
+								Name: isEnabled
+								Parsing Basic Type
+								header_list: 
+								Name: isEnabled Type: boolean format: undefined
+							Property: isVisible
+								Name: isVisible
+								Parsing Basic Type
+								header_list: 
+								Name: isVisible Type: boolean format: undefined
+							Property: enableFailIndexes
+								Name: enableFailIndexes
+								Parsing Array enableFailIndexes
+								Headers: 
+								Must assume that items is of a property.
+									Name: enableFailIndexes
+									Parsing Basic Type
+									header_list: 
+									Name: enableFailIndexes Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: reusablePlugs
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemReusablePlugsComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemReusablePlugsComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Items.DestinyItemReusablePlugsComponent
+					Name: components,schemas,Destiny.Components.Items.DestinyItemReusablePlugsComponent
+					Parsing Object components,schemas,Destiny.Components.Items.DestinyItemReusablePlugsComponent
+					Headers: x-destiny-component-type-dependency
+					Property: plugs
+						Name: plugs
+						Parsing Object plugs
+						Headers: x-dictionary-key
+						We can only assume this is a standard property to parse.
+							Name: plugs
+							Parsing Array plugs
+							Headers: 
+							it's a $ref
+								Name: plugs
+								Parsing Object plugs
+								Headers: 
+								Property: plugItemHash
+									Name: plugItemHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: plugItemHash Type: integer format: uint32
+								Property: canInsert
+									Name: canInsert
+									Parsing Basic Type
+									header_list: 
+									Name: canInsert Type: boolean format: undefined
+								Property: enabled
+									Name: enabled
+									Parsing Basic Type
+									header_list: 
+									Name: enabled Type: boolean format: undefined
+								Property: insertFailIndexes
+									Name: insertFailIndexes
+									Parsing Array insertFailIndexes
+									Headers: 
+									Must assume that items is of a property.
+										Name: insertFailIndexes
+										Parsing Basic Type
+										header_list: 
+										Name: insertFailIndexes Type: integer format: int32
+								Property: enableFailIndexes
+									Name: enableFailIndexes
+									Parsing Array enableFailIndexes
+									Headers: 
+									Must assume that items is of a property.
+										Name: enableFailIndexes
+										Parsing Basic Type
+										header_list: 
+										Name: enableFailIndexes Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: plugObjectives
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemPlugObjectivesComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemPlugObjectivesComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Items.DestinyItemPlugObjectivesComponent
+					Name: components,schemas,Destiny.Components.Items.DestinyItemPlugObjectivesComponent
+					Parsing Object components,schemas,Destiny.Components.Items.DestinyItemPlugObjectivesComponent
+					Headers: x-destiny-component-type-dependency
+					Property: objectivesPerPlug
+						Name: objectivesPerPlug
+						Parsing Object objectivesPerPlug
+						Headers: x-mapped-definition,x-dictionary-key
+						We can only assume this is a standard property to parse.
+							Name: objectivesPerPlug
+							Parsing Array objectivesPerPlug
+							Headers: 
+							it's a $ref
+								Name: objectivesPerPlug
+								Parsing Object objectivesPerPlug
+								Headers: 
+								Property: objectiveHash
+									Name: objectiveHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: objectiveHash Type: integer format: uint32
+								Property: destinationHash
+									Name: destinationHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: destinationHash Type: integer format: uint32
+								Property: activityHash
+									Name: activityHash
+									Parsing Basic Type
+									header_list: x-mapped-definition
+									Name: activityHash Type: integer format: uint32
+								Property: progress
+									Name: progress
+									Parsing Basic Type
+									header_list: 
+									Name: progress Type: integer format: int32
+								Property: completionValue
+									Name: completionValue
+									Parsing Basic Type
+									header_list: 
+									Name: completionValue Type: integer format: int32
+								Property: complete
+									Name: complete
+									Parsing Basic Type
+									header_list: 
+									Name: complete Type: boolean format: undefined
+								Property: visible
+									Name: visible
+									Parsing Basic Type
+									header_list: 
+									Name: visible Type: boolean format: undefined
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: talentGrids
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemTalentGridComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemTalentGridComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemTalentGridComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemTalentGridComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemTalentGridComponent
+					Headers: x-destiny-component-type-dependency
+					Property: talentGridHash
+						Name: talentGridHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: talentGridHash Type: integer format: uint32
+					Property: nodes
+						Name: nodes
+						Parsing Array nodes
+						Headers: 
+						it's a $ref
+							Name: nodes
+							Parsing Object nodes
+							Headers: 
+							Property: nodeIndex
+								Name: nodeIndex
+								Parsing Basic Type
+								header_list: 
+								Name: nodeIndex Type: integer format: int32
+							Property: nodeHash
+								Name: nodeHash
+								Parsing Basic Type
+								header_list: 
+								Name: nodeHash Type: integer format: uint32
+							Property: state
+								Name: state
+								Parsing Basic Type
+								header_list: x-enum-reference
+								Name: state Type: integer format: int32
+							Property: isActivated
+								Name: isActivated
+								Parsing Basic Type
+								header_list: 
+								Name: isActivated Type: boolean format: undefined
+							Property: stepIndex
+								Name: stepIndex
+								Parsing Basic Type
+								header_list: 
+								Name: stepIndex Type: integer format: int32
+							Property: materialsToUpgrade
+								Name: materialsToUpgrade
+								Parsing Array materialsToUpgrade
+								Headers: 
+								it's a $ref
+									Name: materialsToUpgrade
+									Parsing Object materialsToUpgrade
+									Headers: 
+									Property: itemHash
+										Name: itemHash
+										Parsing Basic Type
+										header_list: x-mapped-definition
+										Name: itemHash Type: integer format: uint32
+									Property: deleteOnAction
+										Name: deleteOnAction
+										Parsing Basic Type
+										header_list: 
+										Name: deleteOnAction Type: boolean format: undefined
+									Property: count
+										Name: count
+										Parsing Basic Type
+										header_list: 
+										Name: count Type: integer format: int32
+									Property: countIsConstant
+										Name: countIsConstant
+										Parsing Basic Type
+										header_list: 
+										Name: countIsConstant Type: boolean format: undefined
+									Property: omitFromRequirements
+										Name: omitFromRequirements
+										Parsing Basic Type
+										header_list: 
+										Name: omitFromRequirements Type: boolean format: undefined
+							Property: activationGridLevel
+								Name: activationGridLevel
+								Parsing Basic Type
+								header_list: 
+								Name: activationGridLevel Type: integer format: int32
+							Property: progressPercent
+								Name: progressPercent
+								Parsing Basic Type
+								header_list: 
+								Name: progressPercent Type: number format: float
+							Property: hidden
+								Name: hidden
+								Parsing Basic Type
+								header_list: 
+								Name: hidden Type: boolean format: undefined
+							Property: nodeStatsBlock
+								Name: nodeStatsBlock
+								Parsing Object nodeStatsBlock
+								Headers: 
+								allOf has a ref, stop here and send data to .#/components/schemas/Destiny.DestinyTalentNodeStatBlock
+									Name: components,schemas,Destiny.DestinyTalentNodeStatBlock
+									Parsing Object components,schemas,Destiny.DestinyTalentNodeStatBlock
+									Headers: 
+									Property: currentStepStats
+										Name: currentStepStats
+										Parsing Array currentStepStats
+										Headers: 
+										it's a $ref
+											Name: currentStepStats
+											Parsing Object currentStepStats
+											Headers: 
+											Property: statHash
+												Name: statHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: statHash Type: integer format: uint32
+											Property: value
+												Name: value
+												Parsing Basic Type
+												header_list: 
+												Name: value Type: integer format: int32
+									Property: nextStepStats
+										Name: nextStepStats
+										Parsing Array nextStepStats
+										Headers: 
+										it's a $ref
+											Name: nextStepStats
+											Parsing Object nextStepStats
+											Headers: 
+											Property: statHash
+												Name: statHash
+												Parsing Basic Type
+												header_list: x-mapped-definition
+												Name: statHash Type: integer format: uint32
+											Property: value
+												Name: value
+												Parsing Basic Type
+												header_list: 
+												Name: value Type: integer format: int32
+					Property: isGridComplete
+						Name: isGridComplete
+						Parsing Basic Type
+						header_list: 
+						Name: isGridComplete Type: boolean format: undefined
+					Property: gridProgression
+						Name: gridProgression
+						Parsing Object gridProgression
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.DestinyProgression
+							Name: components,schemas,Destiny.DestinyProgression
+							Parsing Object components,schemas,Destiny.DestinyProgression
+							Headers: 
+							Property: progressionHash
+								Name: progressionHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: progressionHash Type: integer format: uint32
+							Property: dailyProgress
+								Name: dailyProgress
+								Parsing Basic Type
+								header_list: 
+								Name: dailyProgress Type: integer format: int32
+							Property: dailyLimit
+								Name: dailyLimit
+								Parsing Basic Type
+								header_list: 
+								Name: dailyLimit Type: integer format: int32
+							Property: weeklyProgress
+								Name: weeklyProgress
+								Parsing Basic Type
+								header_list: 
+								Name: weeklyProgress Type: integer format: int32
+							Property: weeklyLimit
+								Name: weeklyLimit
+								Parsing Basic Type
+								header_list: 
+								Name: weeklyLimit Type: integer format: int32
+							Property: currentProgress
+								Name: currentProgress
+								Parsing Basic Type
+								header_list: 
+								Name: currentProgress Type: integer format: int32
+							Property: level
+								Name: level
+								Parsing Basic Type
+								header_list: 
+								Name: level Type: integer format: int32
+							Property: levelCap
+								Name: levelCap
+								Parsing Basic Type
+								header_list: 
+								Name: levelCap Type: integer format: int32
+							Property: stepIndex
+								Name: stepIndex
+								Parsing Basic Type
+								header_list: 
+								Name: stepIndex Type: integer format: int32
+							Property: progressToNextLevel
+								Name: progressToNextLevel
+								Parsing Basic Type
+								header_list: 
+								Name: progressToNextLevel Type: integer format: int32
+							Property: nextLevelAt
+								Name: nextLevelAt
+								Parsing Basic Type
+								header_list: 
+								Name: nextLevelAt Type: integer format: int32
+							Property: currentResetCount
+								Name: currentResetCount
+								Parsing Basic Type
+								header_list: 
+								Name: currentResetCount Type: integer format: int32
+							Property: seasonResets
+								Name: seasonResets
+								Parsing Array seasonResets
+								Headers: 
+								it's a $ref
+									Name: seasonResets
+									Parsing Object seasonResets
+									Headers: 
+									Property: season
+										Name: season
+										Parsing Basic Type
+										header_list: 
+										Name: season Type: integer format: int32
+									Property: resets
+										Name: resets
+										Parsing Basic Type
+										header_list: 
+										Name: resets Type: integer format: int32
+							Property: rewardItemStates
+								Name: rewardItemStates
+								Parsing Array rewardItemStates
+								Headers: 
+								Must assume that items is of a property.
+									Name: rewardItemStates
+									Parsing Basic Type
+									header_list: x-enum-reference
+									Name: rewardItemStates Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: plugStates
+			Name: components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemPlugComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemPlugComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Components.Items.DestinyItemPlugComponent
+					Name: components,schemas,Destiny.Components.Items.DestinyItemPlugComponent
+					Parsing Object components,schemas,Destiny.Components.Items.DestinyItemPlugComponent
+					Headers: x-destiny-component-type-dependency
+					Property: plugObjectives
+						Name: plugObjectives
+						Parsing Array plugObjectives
+						Headers: 
+						it's a $ref
+							Name: plugObjectives
+							Parsing Object plugObjectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: plugItemHash
+						Name: plugItemHash
+						Parsing Basic Type
+						header_list: x-mapped-definition
+						Name: plugItemHash Type: integer format: uint32
+					Property: canInsert
+						Name: canInsert
+						Parsing Basic Type
+						header_list: 
+						Name: canInsert Type: boolean format: undefined
+					Property: enabled
+						Name: enabled
+						Parsing Basic Type
+						header_list: 
+						Name: enabled Type: boolean format: undefined
+					Property: insertFailIndexes
+						Name: insertFailIndexes
+						Parsing Array insertFailIndexes
+						Headers: 
+						Must assume that items is of a property.
+							Name: insertFailIndexes
+							Parsing Basic Type
+							header_list: 
+							Name: insertFailIndexes Type: integer format: int32
+					Property: enableFailIndexes
+						Name: enableFailIndexes
+						Parsing Array enableFailIndexes
+						Headers: 
+						Must assume that items is of a property.
+							Name: enableFailIndexes
+							Parsing Basic Type
+							header_list: 
+							Name: enableFailIndexes Type: integer format: int32
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: objectives
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemObjectivesComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemObjectivesComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Headers: x-destiny-component-type-dependency
+					Property: objectives
+						Name: objectives
+						Parsing Array objectives
+						Headers: 
+						it's a $ref
+							Name: objectives
+							Parsing Object objectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: flavorObjective
+						Name: flavorObjective
+						Parsing Object flavorObjective
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+							Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: dateCompleted
+						Name: dateCompleted
+						Parsing Basic Type
+						header_list: 
+						Name: dateCompleted Type: string format: date-time
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: perks
+			Name: components,schemas,DictionaryComponentResponseOfint64AndDestinyItemPerksComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfint64AndDestinyItemPerksComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemPerksComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Headers: x-destiny-component-type-dependency
+					Property: perks
+						Name: perks
+						Parsing Array perks
+						Headers: 
+						it's a $ref
+							Name: perks
+							Parsing Object perks
+							Headers: 
+							Property: perkHash
+								Name: perkHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: perkHash Type: integer format: uint32
+							Property: iconPath
+								Name: iconPath
+								Parsing Basic Type
+								header_list: 
+								Name: iconPath Type: string format: undefined
+							Property: isActive
+								Name: isActive
+								Parsing Basic Type
+								header_list: 
+								Name: isActive Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+Property: uninstancedItemComponents
+	Name: uninstancedItemComponents
+	Parsing Object uninstancedItemComponents
+	Headers: 
+	allOf has a ref, stop here and send data to .#/components/schemas/DestinyBaseItemComponentSetOfuint32
+		Name: components,schemas,DestinyBaseItemComponentSetOfuint32
+		Parsing Object components,schemas,DestinyBaseItemComponentSetOfuint32
+		Headers: 
+		Property: objectives
+			Name: components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemObjectivesComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemObjectivesComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemObjectivesComponent
+					Headers: x-destiny-component-type-dependency
+					Property: objectives
+						Name: objectives
+						Parsing Array objectives
+						Headers: 
+						it's a $ref
+							Name: objectives
+							Parsing Object objectives
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: flavorObjective
+						Name: flavorObjective
+						Parsing Object flavorObjective
+						Headers: 
+						allOf has a ref, stop here and send data to .#/components/schemas/Destiny.Quests.DestinyObjectiveProgress
+							Name: components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Parsing Object components,schemas,Destiny.Quests.DestinyObjectiveProgress
+							Headers: 
+							Property: objectiveHash
+								Name: objectiveHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: objectiveHash Type: integer format: uint32
+							Property: destinationHash
+								Name: destinationHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: destinationHash Type: integer format: uint32
+							Property: activityHash
+								Name: activityHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: activityHash Type: integer format: uint32
+							Property: progress
+								Name: progress
+								Parsing Basic Type
+								header_list: 
+								Name: progress Type: integer format: int32
+							Property: completionValue
+								Name: completionValue
+								Parsing Basic Type
+								header_list: 
+								Name: completionValue Type: integer format: int32
+							Property: complete
+								Name: complete
+								Parsing Basic Type
+								header_list: 
+								Name: complete Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+					Property: dateCompleted
+						Name: dateCompleted
+						Parsing Basic Type
+						header_list: 
+						Name: dateCompleted Type: string format: date-time
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+		Property: perks
+			Name: components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemPerksComponent
+			Parsing Object components,schemas,DictionaryComponentResponseOfuint32AndDestinyItemPerksComponent
+			Headers: 
+			Property: data
+				Name: data
+				Parsing Object data
+				Headers: x-dictionary-key
+				additionalProperties is a schema ref: #/components/schemas/Destiny.Entities.Items.DestinyItemPerksComponent
+					Name: components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Parsing Object components,schemas,Destiny.Entities.Items.DestinyItemPerksComponent
+					Headers: x-destiny-component-type-dependency
+					Property: perks
+						Name: perks
+						Parsing Array perks
+						Headers: 
+						it's a $ref
+							Name: perks
+							Parsing Object perks
+							Headers: 
+							Property: perkHash
+								Name: perkHash
+								Parsing Basic Type
+								header_list: x-mapped-definition
+								Name: perkHash Type: integer format: uint32
+							Property: iconPath
+								Name: iconPath
+								Parsing Basic Type
+								header_list: 
+								Name: iconPath Type: string format: undefined
+							Property: isActive
+								Name: isActive
+								Parsing Basic Type
+								header_list: 
+								Name: isActive Type: boolean format: undefined
+							Property: visible
+								Name: visible
+								Parsing Basic Type
+								header_list: 
+								Name: visible Type: boolean format: undefined
+			Property: privacy
+				Name: privacy
+				Parsing Basic Type
+				header_list: x-enum-reference
+				Name: privacy Type: integer format: int32
+			Property: disabled
+				Name: disabled
+				Parsing Basic Type
+				header_list: 
+				Name: disabled Type: boolean format: undefined
+Property: currencyLookups
+	Name: currencyLookups
+	Parsing Object currencyLookups
+	Headers: x-destiny-component-type-dependency
+	allOf has a ref, stop here and send data to .#/components/schemas/SingleComponentResponseOfDestinyCurrenciesComponent
+		Name: components,schemas,SingleComponentResponseOfDestinyCurrenciesComponent
+		Parsing Object components,schemas,SingleComponentResponseOfDestinyCurrenciesComponent
+		Headers: 
+		Property: data
+			Name: components,schemas,Destiny.Components.Inventory.DestinyCurrenciesComponent
+			Parsing Object components,schemas,Destiny.Components.Inventory.DestinyCurrenciesComponent
+			Headers: x-destiny-component-type-dependency
+			Property: itemQuantities
+				Name: itemQuantities
+				Parsing Object itemQuantities
+				Headers: x-mapped-definition,x-dictionary-key
+				We can only assume this is a standard property to parse.
+					Name: itemQuantities
+					Parsing Basic Type
+					header_list: 
+					Name: itemQuantities Type: integer format: int32
+		Property: privacy
+			Name: privacy
+			Parsing Basic Type
+			header_list: x-enum-reference
+			Name: privacy Type: integer format: int32
+		Property: disabled
+			Name: disabled
+			Parsing Basic Type
+			header_list: 
+			Name: disabled Type: boolean format: undefined
+Completed.

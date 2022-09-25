@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CharacterPanel from './character_panel';
-
+import TestObject from './test.js';
 
 class UserPage extends React.Component {
     constructor(props){
@@ -26,12 +26,16 @@ class UserPage extends React.Component {
         console.log(this.state.character_ids);
         return(
             <>
-                <CharacterPanel id={this.state.character_ids[0]} />
-                <CharacterPanel id={this.state.character_ids[1]} />
-                <CharacterPanel id={this.state.character_ids[2]} />
+                
+                <TestObject />
             </>
         );
     }
     
 }
+/*
+<CharacterPanel id={this.state.character_ids[0]} />
+<CharacterPanel id={this.state.character_ids[1]} />
+<CharacterPanel id={this.state.character_ids[2]} /> 
+*/
 export default UserPage;
