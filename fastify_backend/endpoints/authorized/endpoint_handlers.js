@@ -48,16 +48,15 @@ async function test(request, reply){
     let character_id = request.query.character_id;
     let token = request.session.auth_data.access_token;
     let membership_type = request.session.user_data.d2_account.membership_type;
-
+    
     return d2api.GetCharacter(token, d2_membership_id, character_id, { components: ["200"] }, membership_type)
     .then( (result) => {
         let data = result.data.Response;
         let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
         let request_type = "get";
         let code = "200";
-        fs.writeFile("characterdata.json", JSON.stringify(data), (result) => console.log("successfully written.") );
-        //data = data_processor(api_doc_link, request_type, code, data);
-        return data;
+        let parsed_data = data_processor(api_doc_link, request_type, code, data);
+        return [data, parsed_data];
     }).catch( (error) => {
         return error;
     });
