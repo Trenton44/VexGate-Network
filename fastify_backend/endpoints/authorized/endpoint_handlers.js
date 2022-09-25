@@ -1,8 +1,8 @@
+const fs = require('fs');
 const path = require ('path');
 const helper = require(path.join(__dirname, '..', 'common_functions.js'));
 const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/wrapper.js'));
 const d2api = require(path.join(__dirname, '..', '..', '/bungie_api/api.js'));
-const formatter = require(path.join(__dirname, '..', '..', '/bungie_api/GetCharacterResponse.json'));
 
 
 const data_processor = require(path.join(__dirname, '..', '..', '/bungie_api/build_api_response.js'));
@@ -55,7 +55,8 @@ async function test(request, reply){
         let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
         let request_type = "get";
         let code = "200";
-        data = data_processor(api_doc_link, request_type, code, data);
+        fs.writeFile("characterdata.json", JSON.stringify(data), (result) => console.log("successfully written.") );
+        //data = data_processor(api_doc_link, request_type, code, data);
         return data;
     }).catch( (error) => {
         return error;

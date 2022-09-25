@@ -13,17 +13,23 @@ function processAPIEndpointData(path, request_type, status_code, endpoint_data){
     if(!api_path)
         throw Error("api path returned bad. wha happn");
     let api_endpoint_schema_link = parseLocalSchemaLink(api_path);
+    console.log(api_endpoint_schema_link.toString());
     let schema = getSchemaFromLocalLink(api_endpoint_schema_link);
     // At this point, we've got the schema for the Api response. 
     // Now we need the schema for the actual Response object inside it.
     // all responses are currently application/json. if that changes, I'll just add it the parameters being passed.
-    let response_object_schema_link = schema.content["application/json"].schema.properties.Response["$ref"];
+    console.log(schema);
+    let response_object_schema_link = schema.content;
+    response_object_schema_link= response_object_schema_link["application/json"];
+    response_object_schema_link = response_object_schema_link.schema.properties.Response["$ref"];
     //gotta parse that ref link to iterable json keys.
     let parsed_response_object_schema_link = parseLocalSchemaLink(response_object_schema_link);
     let response_object_schema = getSchemaFromLocalLink(parsed_response_object_schema_link);
 
     //and now, let the data mapping/recursion begin.
-    return propertyTypeProcessor(parsed_response_object_schema_link, endpoint_data, endpoint_data);
+    console.log("DATA: ");
+    console.log(endpoint_data);
+    return propertyTypeProcessor(parsed_response_object_schema_link, response_object_schema, endpoint_data);
 }
 
 
@@ -35,7 +41,7 @@ function parseLocalSchemaLink(link, delimiter){
     // I added this so I could split them while testing, leaving the functionality in in case it ever is needed
     if(!delimiter){ delimiter = "/";  }
         
-    let newstring = refstring.split(delim); //split into an array
+    let newstring = link.split(delimiter); //split into an array
 
     if(newstring[0] === "#") { return newstring.slice(1); } //I don't want the leading #, so remove if it's there.
     else { return newstring; }
@@ -54,11 +60,14 @@ function getSchemaFromLocalLink(link){
         reference = reference[key]
 
     });
+    return reference;
 }
 
 //The big kahunga, the central function all processing gonna go through.
 // directs processing based on the schema's type property. Doesn't actually do any data processing though.
 function propertyTypeProcessor(key, schema, data){
+    console.log("IN CONTROLLER: ");
+    console.log("Data: "+JSON.stringify(data));
     switch(schema.type){
         case "object":
             return processTypeObject(key, schema, data);
@@ -75,6 +84,8 @@ function propertyTypeProcessor(key, schema, data){
 //Currently, Bungie only ever puts one type of data into arrays at endpoints, so that's why the logic checks for
 // If more than one at a time ever show up, this function is not daijoubu
 function processTypeArray(key, schema, data){
+    console.log("Processing Array "+key);
+    console.log("Data: "+JSON.stringify(data));
     //all arrays i've found store the reference in the "items" keyword, so add that to the list of assumptions I've made here.
     if(schema.items["$ref"]){
         schema_keys = parseLocalSchemaLink(schema.items["$ref"]);
@@ -99,6 +110,8 @@ function processTypeArray(key, schema, data){
 //Processes what we find at the bottom of the endless schemas upon schemas: your good 'ol bools, ints, strings, and etc.
 //data actually gets mapped to points here. any custom mapping for specific data (like hash values -> corresponding def) will occur here too
 function processTypeBasic(key, schema, data){
+    console.log("Processing Array "+key);
+    console.log("Data: "+JSON.stringify(data));
     //there should only be one piece of data at this point, and it's key should correspond with the schema.
     //So imma have it throw a fit if that's not the case.
     if(Object.keys(data)[0] != Object.keys(schema)[0]){
@@ -119,6 +132,8 @@ function processTypeBasic(key, schema, data){
 //  -allOf
 //If one appears with more, i will cry.
 function processTypeObject(key, schema, data){
+    console.log("Processing Array "+key);
+    console.log("Data: "+JSON.stringify(data));
     let process_data = {};
     if(schema.properties){
         process_data = processObjectProperties(key, schema.properties, data); //Handles the data recursion
