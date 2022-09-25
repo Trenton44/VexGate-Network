@@ -45,26 +45,20 @@ function transformData(key_list, schema, data){
             }
             reference = reference[key];
         });
+        console.log("reference");
+        console.log(reference);
     }
-    catch {
-        //if config object doesn't have any changes in there, try will throw "cannot access property of undefined". here we catch that and keep going
-        console.log(key_list.toString()+" not found in config.");
-        return data;
-    }
-    //stored value should be a function that handles the custom data processing. if it's not, we outta here.
-    if(!(reference instanceof Function)){ 
-        console.log("not a function.");
-        return data; 
-    } 
-    // if null, no changes need to be made, return the data
-    //that path in config should hold a function (or an object with functions mapped to keys, haven't decided yet.) in any case, call that function and pass the data
-    console.log("config found in keylist "+key_list.toString());
-    console.log("Value of reference discovered: ");
-    console.log(reference);
-    let new_data = reference(data);
-    console.log(new_data);
-    return new_data;
-    
+    //if no config for the current keylist exists, "try" will throw a "cannot access property of undefined". 
+    //if that happens, we're done here.
+    catch { return data; } 
+    console.log(key_list);
+    console.log("we ball");
+    console.log(data);
+    if(reference == undefined){ return data; }
+    // keywords, reduce (to filter the data) 
+    if(reference.transform instanceof Function)
+        data = reference.transform(data);
+    return data;
 }
 
 //Bungie open-api file currently uses local references, in the form of #/{link in json}.
@@ -101,12 +95,15 @@ function getSchemaFromLocalLink(link){
 function propertyTypeProcessor(key_list, schema, data){
     switch(schema.type){
         case "object":
-            return transformData(key_list, schema, processTypeObject(key_list, schema, data));
+            data = processTypeObject(key_list, schema, data);
+            return transformData(key_list, schema, data);
         case "array":
-            return transformData(key_list, schema, processTypeArray(key_list, schema, data));
+            data = processTypeArray(key_list, schema, data);
+            return transformData(key_list, schema, data);
         default:
             //If it's not an array or object, it should be able to be mapped from schema value -> data value.
-            return processTypeBasic(key_list, schema, data);
+            data = processTypeBasic(key_list, schema, data);
+            return transformData(key_list, schema, data);
     }
 }
 
@@ -132,7 +129,10 @@ function processTypeArray(key_list, schema, data){
 
 //Processes what we find at the bottom of the endless schemas upon schemas: your good 'ol bools, ints, strings, and etc.
 //data actually gets mapped to points here. any custom mapping for specific data (like hash values -> corresponding def) will occur here too
-function processTypeBasic(key_list, schema, data){ return data; }
+function processTypeBasic(key_list, schema, data){ 
+    console.log(data);
+    return data; 
+}
 
 //Process any appearance of an object type inside the api_doc json.
 // takes the data, and maps it to schema data as desired.
