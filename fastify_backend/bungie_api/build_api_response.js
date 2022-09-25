@@ -1,3 +1,37 @@
+/*
+    IMPORTANT NOTE:
+    currently, there are some values that exist in the API that are not documented by the api_doc schemas.
+    So, for now, we need to include a check that looks to see if a given property exists in the schema, and if it doesn't, just ignore it and return the value
+
+    Logs that helped me discover this issue: (dismantleProperties doesn't exist in docs)
+        [
+    'components',
+    'schemas',
+    'Destiny.Entities.Items.DestinyItemComponent'
+    ]
+    itemHash
+    itemInstanceId
+    quantity
+    bindStatus
+    location
+    bucketHash
+    transferStatus
+    lockable
+    state
+    dismantlePermission
+    TypeError: Cannot read properties of undefined (reading '$ref')
+        at processObjectProperties (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:157:38)
+        at processTypeObject (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:139:16)
+        at propertyTypeProcessor (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:92:20)
+        at /home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:114:63
+        at Array.map (<anonymous>)
+        at processTypeArray (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:114:29)
+        at propertyTypeProcessor (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:95:20)
+        at processObjectProperties (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:168:28)
+        at processTypeObject (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:139:16)
+        at propertyTypeProcessor (/home/ec2-user/Fastify-Destiny/fastify_backend/bungie_api/build_api_response.js:92:20)
+*/
+
 const api_doc = require("./openapi.json");
 const test_data = require("./characterdata.json");
 const x_type_headers_list = ["x-mapped-definition", "x-mobile-manifest-name", "x-enum-reference", "x-enum-values", "x-destiny-component-type-dependency", "x-dictionary-key", "x-preview"];
@@ -7,25 +41,39 @@ const data_transformer = require("./transform_data.js");
 //  -the type of request (get, post, etc.)
 //  -The status code of the request (ideally 200)
 function processAPIEndpointData(path, request_type, status_code, endpoint_data){
-    let api_path = api_doc.paths[path][request_type].responses[status_code]["$ref"];
+    let key_list = ["paths", path, request_type, "responses", status_code, "$ref"];
+    let api_path = traverseObject(key_list, api_doc);
     if(!api_path)
         throw Error("api path returned bad. wha happn");
     let api_endpoint_schema_link = parseLocalSchemaLink(api_path);
-    console.log(api_endpoint_schema_link.toString());
     let schema = getSchemaFromLocalLink(api_endpoint_schema_link);
-    // At this point, we've got the schema for the Api response. 
-    // Now we need the schema for the actual Response object inside it.
-    // all responses are currently application/json. if that changes, I'll just add it the parameters being passed.
-    let response_object_schema_link = schema.content;
-    response_object_schema_link= response_object_schema_link["application/json"];
-    response_object_schema_link = response_object_schema_link.schema.properties.Response["$ref"];
-    //gotta parse that ref link to iterable json keys.
-    let parsed_response_object_schema_link = parseLocalSchemaLink(response_object_schema_link);
-    let response_object_schema = getSchemaFromLocalLink(parsed_response_object_schema_link);
 
+    key_list = ["content", "application/json", "schema","properties", "Response", "$ref"];
+    let response_schema_link = traverseObject(key_list, schema);
+    if(!response_schema_link)
+        throw Error("Couldn't parse key_list");
+
+    //gotta parse that ref link to iterable json keys.
+    let parsed_response_object_schema_link = parseLocalSchemaLink(response_schema_link);
+    let response_object_schema = getSchemaFromLocalLink(parsed_response_object_schema_link);
     //and now, let the data mapping/recursion begin.
     return propertyTypeProcessor(parsed_response_object_schema_link, response_object_schema, endpoint_data);
 }
+
+//defaults to the api_doc
+function traverseObject(keylist, searchObj){
+    if(searchObj == undefined){ searchObj = api_doc; }
+    try{
+        keylist.forEach( (key) => { 
+            searchObj = searchObj[key]; 
+        });
+    }
+    catch {
+        return false;
+    }
+    return searchObj;
+}
+
 
 // The idea with these three functions is, after the data at a property has been configured, i check a custom config object to see if a matching key exists
 // If it does exist, run transformations on the data based on what I have inside the config object.
@@ -45,15 +93,10 @@ function transformData(key_list, schema, data){
             }
             reference = reference[key];
         });
-        console.log("reference");
-        console.log(reference);
     }
     //if no config for the current keylist exists, "try" will throw a "cannot access property of undefined". 
     //if that happens, we're done here.
     catch { return data; } 
-    console.log(key_list);
-    console.log("we ball");
-    console.log(data);
     if(reference == undefined){ return data; }
     // keywords, reduce (to filter the data) 
     if(reference.transform instanceof Function)
@@ -113,24 +156,20 @@ function propertyTypeProcessor(key_list, schema, data){
 // If more than one at a time ever show up, this function is not daijoubu
 function processTypeArray(key_list, schema, data){
     //all arrays i've found store the reference in the "items" keyword, so add that to the list of assumptions I've made here.
-    if(schema.items["$ref"]){
-        schema_keys = parseLocalSchemaLink(schema.items["$ref"]);
-        next_schema = getSchemaFromLocalLink(schema_keys);
-        //we got the schemas, but now we wanna parse each item in the data array with the schema.
-        let new_data = data.map( (current, index) => { return propertyTypeProcessor(schema_keys, next_schema, current); });
-        return new_data;
+    let itemlist = traverseObject(["items", "$ref"], schema);
+    if(itemlist){
+        key_list = parseLocalSchemaLink(itemlist);
+        schema = getSchemaFromLocalLink(key_list);
     }
-    else{
-        //if it aint got a reference, "items" gotta be holding data about a property, so we use it and go into recursion.
-        let new_data = data.map( (current, index) => { return propertyTypeProcessor(key_list, schema.items, current); });
-        return new_data;
-    }
+    else { schema = schema.items; }
+
+    let new_data = data.map( (current, index) => { return propertyTypeProcessor(key_list, schema, current); });
+    return new_data;
 }
 
 //Processes what we find at the bottom of the endless schemas upon schemas: your good 'ol bools, ints, strings, and etc.
 //data actually gets mapped to points here. any custom mapping for specific data (like hash values -> corresponding def) will occur here too
 function processTypeBasic(key_list, schema, data){ 
-    console.log(data);
     return data; 
 }
 
@@ -155,24 +194,32 @@ function processTypeObject(key_list, schema, data){
 //Some appearances of objects in the schema ref store values in the properties keyword.
 // this handles that data and returns the mapped values.
 function processObjectProperties(key_list, schema_prop_list, data){
-    //iterate through data available.
+    console.log("");
     let parsed_properties = {};
     for(property in data){
-        //look for data property's corresponding schema property
-        if(schema_prop_list[property]["$ref"]){
-            schema_keys = parseLocalSchemaLink(schema_prop_list[property]["$ref"]); //get the list keys to next schema from value in this one.
-            next_schema = getSchemaFromLocalLink(schema_keys); //pull the schema from api_doc, save here
-            let new_data = propertyTypeProcessor(schema_keys, next_schema, data[property]) // pass keys, schema, and the data inside this property
-            parsed_properties[property] = new_data
-        } 
-        else{
-            //if no reference to schema, it must be holding it's own property info.
-            //in which case, we treat it as a new property, and back into the recursion chain we go
-            let new_key_list = key_list.slice(0);
-            new_key_list.push(property); //make a new list to maintain key list, and add the property to it.
-            let new_data = propertyTypeProcessor(new_key_list, schema_prop_list[property], data[property]); //pass the key for this property only, the value of the prop in the schema, and the corresponding data.
-            parsed_properties[property] = new_data
+        console.log("checking property "+property);
+        let passed_keylist = key_list;
+        //check if property exists in the api schema
+        propSchema = traverseObject([property], schema_prop_list);
+        console.log("result: "+propSchema);
+        if(!propSchema){
+            console.log(property +" doesn't exist in api docs, so skip and ignore");
+            parsed_properties[property] = data[property];
+            continue;
         }
+        console.log("Property "+property+" does exist in the schema.");
+        propSchema = traverseObject([property, "$ref"], schema_prop_list);
+        if(propSchema){
+            console.log("Has $ref: "+propSchema);
+            passed_keylist = parseLocalSchemaLink(propSchema);
+            schema = getSchemaFromLocalLink(key_list);
+        }
+        else{
+            passed_keylist = key_list.slice(0);
+            passed_keylist.push(property);
+            schema = schema_prop_list[property];
+        }
+        parsed_properties[property] = propertyTypeProcessor(passed_keylist, schema, data[property]);
     }
     return parsed_properties; //return the list of data, now mapped as desired with the properties.
 }
@@ -183,31 +230,35 @@ function processObjectProperties(key_list, schema_prop_list, data){
 // But that doesn't happen in the api currently, and that logic is hard, so it'll get implemented after a blueprint is established.
 function processObjectAdditionalProperties(key_list, schema, data){
     //additionalProperties tend to follow a schema reference, so we handle that recursion here.
-    if(schema.additionalProperties["$ref"]){
-        schema_keys = parseLocalSchemaLink(schema.additionalProperties["$ref"]);
-        next_schema = getSchemaFromLocalLink(schema_keys);
-        return propertyTypeProcessor(schema_keys, next_schema, data);
+    let propSchema = traverseObject(["additionalProperties", "$ref"], schema);
+    if(propSchema){
+        key_list = parseLocalSchemaLink(propSchema);
+        schema = getSchemaFromLocalLink(key_list); 
     }
     //If it's not holding a schema, it's gotta be holding another property type, so we continue the recursion.
-    else{
-        return propertyTypeProcessor(key_list,schema.additionalProperties, data);
-    }
+    else{ schema = schema.additionalProperties; }
+    return propertyTypeProcessor(key_list, schema, data);
 }
 
 //Some objects in the doc, like the components, have a schema ref stored in an allOf keyword.
 // This handles that and returns the values.
 function processObjectAllOfRef(key_list, schema, data){
-    if(schema.allOf[0]["$ref"]){
-        schema_keys = parseLocalSchemaLink(schema.allOf[0]["$ref"]);
-        next_schema = getSchemaFromLocalLink(schema_keys);
-        return propertyTypeProcessor(schema_keys, next_schema, data);
+    console.log("this will probably fail.");
+    let propSchema = traverseObject(["allOf", 0, "$ref"], schema);
+    console.log("it didn't fail: "+propSchema);
+    if(propSchema){
+        console.log("it didn't fail: ");
+        console.log(propSchema);
+        key_list = parseLocalSchemaLink(propSchema);
+        schema = getSchemaFromLocalLink(key_list);
     }
     else{
         //every instance currently of allOf has one value, the $ref. should this ever change, I'll have to add the logic.
         throw Error(test(count)+"First instance in allOf not $ref, unsupported.");
     }
+    return propertyTypeProcessor(key_list, schema, data);
 }
-
+/*
 let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
 let request_type = "get";
 let code = "200";
@@ -215,4 +266,5 @@ let blah = processAPIEndpointData(api_doc_link, request_type, code, test_data);
 console.log(blah);
 const fs = require('fs');
 fs.writeFile("parsedcharacterdata.json", JSON.stringify(blah), (result) => console.log("success"));
+*/
 module.exports = processAPIEndpointData;

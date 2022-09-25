@@ -34,9 +34,11 @@ async function api_characterData(request, reply){
     return d2api.GetCharacter(token, d2_membership_id, character_id, { components: ["200", "201", "205", "302", "300", "304"] }, membership_type)
     .then( (result) => {
         let data = result.data.Response;
-        let formatted_data = {};
-        formatted_data.character = formatter.SingleComponentResponseofDestinyCharacterComponent(data.character);
-        return data;
+        let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
+        let request_type = "get";
+        let code = "200";
+        let parsed_data = data;//data_processor(api_doc_link, request_type, code, data);
+        return parsed_data;
     }).catch( (error) => {
         console.log(error)
         return Error("unable to get character data.");
@@ -52,10 +54,7 @@ async function test(request, reply){
     return d2api.GetCharacter(token, d2_membership_id, character_id, { components: ["200"] }, membership_type)
     .then( (result) => {
         let data = result.data.Response;
-        let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
-        let request_type = "get";
-        let code = "200";
-        let parsed_data = data_processor(api_doc_link, request_type, code, data);
+        
         return [data, parsed_data];
     }).catch( (error) => {
         return error;
