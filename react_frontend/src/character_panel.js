@@ -39,7 +39,7 @@ class CharacterPanel extends React.Component {
     }
     render(){
         return(
-            <> <CharacterEmblem data={this.props.id} /> </>
+            <> <CharacterEmblem data={this.props.data} /> </>
         );
     }
 }

@@ -9,7 +9,7 @@ class CharacterEmblem extends React.Component {
     }
     render(){
         return(
-            <div class="character_emblem" style={{ "background-image": "url()" }} >
+            <div class="character_emblem" style={{ "background-image": "url("+this.props.data.emblemPath+")" }} >
                 <h1>{this.props.data}</h1>
                 <div>
                     <h1>Light</h1>
