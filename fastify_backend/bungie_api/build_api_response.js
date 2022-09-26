@@ -68,9 +68,8 @@ function traverseObject(keylist, searchObj){
             searchObj = searchObj[key]; 
         });
     }
-    catch {
-        return false;
-    }
+    catch { return false; }
+    if(searchObj == undefined) { return false; }
     return searchObj;
 }
 
@@ -136,6 +135,12 @@ function getSchemaFromLocalLink(link){
 //The big kahunga, the central function all processing gonna go through.
 // directs processing based on the schema's type property. Doesn't actually do any data processing though.
 function propertyTypeProcessor(key_list, schema, data){
+    try{
+        let typeExists = schema.type;
+    }
+    catch{
+        throw Error("Found nonexistent schema, this shouldn't happen.");
+    }
     switch(schema.type){
         case "object":
             data = processTypeObject(key_list, schema, data);
@@ -161,7 +166,15 @@ function processTypeArray(key_list, schema, data){
         key_list = parseLocalSchemaLink(itemlist);
         schema = getSchemaFromLocalLink(key_list);
     }
-    else { schema = schema.items; }
+    else { 
+        // NOTE: COUNT THESE NOTES AS OUTDATED FOR NOW, BUT THEY MAY BE USEFUL IN SOME EXTREME CASE IN THE FUTURE
+        //  I discovered during my ordeal with indexed properties (see processObjectProperties)
+        //  that some arrays in the api (see Destiny.Entities.Items.DestinyItemPerksComponent) 
+        //are NOT listed under items, but are listed under the parent schema's property key.
+        //  So, if we can't find .items.$ref, we check for schema.items. If that fails, we check for [key_list[-1]]
+        //  And if THAT doesn't exist, we stumped. So I'll throw an error for now to see if this ever is a problem.
+        schema = schema.items; 
+    }
 
     let new_data = data.map( (current, index) => { return propertyTypeProcessor(key_list, schema, current); });
     return new_data;
@@ -182,7 +195,7 @@ function processTypeBasic(key_list, schema, data){
 //If one appears with more, i will cry.
 function processTypeObject(key_list, schema, data){
     if(schema.properties)
-        return processObjectProperties(key_list, schema.properties, data); //Handles the data recursion
+        return processObjectProperties(key_list, schema, data); //Handles the data recursion
     else if(schema.additionalProperties)
         return processObjectAdditionalProperties(key_list, schema, data);
     else if(schema.allOf)
@@ -193,35 +206,69 @@ function processTypeObject(key_list, schema, data){
 
 //Some appearances of objects in the schema ref store values in the properties keyword.
 // this handles that data and returns the mapped values.
-function processObjectProperties(key_list, schema_prop_list, data){
-    console.log("");
+function processObjectProperties(key_list, schema, data){
+    let schema_prop_list = schema.properties;
     let parsed_properties = {};
     for(property in data){
-        console.log("checking property "+property);
-        let passed_keylist = key_list;
-        //check if property exists in the api schema
-        propSchema = traverseObject([property], schema_prop_list);
-        console.log("result: "+propSchema);
-        if(!propSchema){
-            console.log(property +" doesn't exist in api docs, so skip and ignore");
-            parsed_properties[property] = data[property];
-            continue;
-        }
-        console.log("Property "+property+" does exist in the schema.");
-        propSchema = traverseObject([property, "$ref"], schema_prop_list);
-        if(propSchema){
-            console.log("Has $ref: "+propSchema);
-            passed_keylist = parseLocalSchemaLink(propSchema);
-            schema = getSchemaFromLocalLink(key_list);
+        let passKeys = key_list.slice(0);
+        let passSchema = schema_prop_list;
+
+        if(traverseObject([property, "$ref"], passSchema)){
+            passKeys = parseLocalSchemaLink(traverseObject([property, "$ref"], passSchema));
+            passSchema = getSchemaFromLocalLink(passKeys);
         }
         else{
-            passed_keylist = key_list.slice(0);
-            passed_keylist.push(property);
-            schema = schema_prop_list[property];
+            //if we get here, there's a few possibilites:
+            //  item is another schema property, pass the data
+            //  Item is another schema property, but the data has been indexed, and now doesn't match up with the original schema's property value
+            //  Item is not listed in the documentation.
+            //  Unfortunately, while the x-type-header DOES give you a hint that it's an indexed property
+            //  It DOESN'T tell you which one. So we have to do a hack solution that hopefully works across the api, at least until it doesn't.
+            // in the event that schema["the indexed property obtained from the property var"], doesn't match the schema's actual property
+            // We will check to see if the # of schema&data properties is 1. if it is, wonderful! We can go on with those
+            //  if not, we're screwed, pack it up until they add a way to map indexed property -> schema property in the api docs
+            if(traverseObject([property], schema_prop_list)){
+                //property key exists in schema, we can pass the data and go on with our lives.
+                passKeys.push(property);
+                passSchema = schema_prop_list[property];
+            }
+            else{
+                //if we make it to this point, we have one of two possiblities:
+                //  -property is a property that just isn't mapped on the api docs
+                //  -property is a property that has been indexed, and can't be matched with its corresponding schema property
+                
+                //if the length of keys doesn't match, it's either undocumented or indexed. either way, I can't do anything further with it without knowing the difference
+                //  So I'll just return the data as is for now, and just won't be able to run any data transformations on subproperties of this
+                if(Object.keys(schema_prop_list).length != Object.keys(data).length){
+                    parsed_properties[property] = data[property];
+                    console.log("Well, found a property ("+property+") that doesn't show up in the API docs. Assuming it's undocumented or the key is indexed, since the number of properties don't line up.");
+                    continue;
+                }
+                else{
+                    //if we get here, they ARE the same, which means that it's indexed.
+                    //  So we pray that there's only one property in this list
+                    //  Because if there's more, we can't map each property to it's corresponding schema without random guessing.
+                    if(Object.keys(schema_prop_list).length == 1 && Object.keys(data).length == 1){
+                        //The gods have been merciful, there is only one property, so indexed can be assumed to match schema prop
+                        console.log("well, property "+ property+" inside of "+key_list.toString()+" an indexed value, but fortunately, it's the only one, so we know the schema "+schema_prop_list[Object.keys(schema_prop_list)[0]]+"matches.");
+                        schema_property = Object.keys(schema_prop_list)[0];
+                        passKeys.push(schema_property);
+                        passSchema = schema;
+                    }
+                    else{
+                        //The gods have forsaken us. 
+                        //We really shouldn't be here. the checks for key length should've captured indexed & undocumented properties, so if we're here I'm completely stuck.
+                        console.log(key_list);
+                        console.log(schema);
+                        console.log(data);
+                        throw Error("There might be two indexed types here, all hope is lost.");
+                    }
+                }
+            }
         }
-        parsed_properties[property] = propertyTypeProcessor(passed_keylist, schema, data[property]);
+        parsed_properties[property] = propertyTypeProcessor(passKeys, passSchema, data[property]);
     }
-    return parsed_properties; //return the list of data, now mapped as desired with the properties.
+    return parsed_properties;
 }
 
 //Some appearances of objects in the schema ref store values in the additionalProperties keyword.
@@ -236,35 +283,31 @@ function processObjectAdditionalProperties(key_list, schema, data){
         schema = getSchemaFromLocalLink(key_list); 
     }
     //If it's not holding a schema, it's gotta be holding another property type, so we continue the recursion.
-    else{ schema = schema.additionalProperties; }
+    else 
+        schema = schema.additionalProperties; 
     return propertyTypeProcessor(key_list, schema, data);
 }
 
 //Some objects in the doc, like the components, have a schema ref stored in an allOf keyword.
 // This handles that and returns the values.
 function processObjectAllOfRef(key_list, schema, data){
-    console.log("this will probably fail.");
     let propSchema = traverseObject(["allOf", 0, "$ref"], schema);
-    console.log("it didn't fail: "+propSchema);
     if(propSchema){
-        console.log("it didn't fail: ");
-        console.log(propSchema);
         key_list = parseLocalSchemaLink(propSchema);
         schema = getSchemaFromLocalLink(key_list);
+        return propertyTypeProcessor(key_list, schema, data);
     }
     else{
         //every instance currently of allOf has one value, the $ref. should this ever change, I'll have to add the logic.
         throw Error(test(count)+"First instance in allOf not $ref, unsupported.");
     }
-    return propertyTypeProcessor(key_list, schema, data);
 }
-/*
+
 let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
 let request_type = "get";
 let code = "200";
 let blah = processAPIEndpointData(api_doc_link, request_type, code, test_data);
-console.log(blah);
 const fs = require('fs');
 fs.writeFile("parsedcharacterdata.json", JSON.stringify(blah), (result) => console.log("success"));
-*/
+
 module.exports = processAPIEndpointData;

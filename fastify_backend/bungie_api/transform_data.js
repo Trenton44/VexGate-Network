@@ -1,6 +1,7 @@
 const d2_definitions = require("./manifest_files/en/jsonWorldContent.json"); 
 
 //Note, transform_config functions cannot be used on properties that are basic types, like integer, string, etc. Rule of thumbs is objects and arrays only.
+//  Also, I as of now can't map indexed objects, so if a route has its keys indexed, subtree configs here just won't ever be reached.
 const transform_config = {
     "components": {
         "schemas": {
