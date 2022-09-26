@@ -38,6 +38,7 @@ function saveTokenData(session_store, token_data){
         session_store.user_data = {};
     }
     session_store.user_data.membership_id = token_data.membership_id;
+    session_store.cookie.maxAge = session_store.auth_data.refresh_exipration;
     return true;
 }
 module.exports = {validateTokens, saveTokenData};
