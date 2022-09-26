@@ -135,22 +135,22 @@ function getSchemaFromLocalLink(link){
 //The big kahunga, the central function all processing gonna go through.
 // directs processing based on the schema's type property. Doesn't actually do any data processing though.
 function propertyTypeProcessor(key_list, schema, data){
-    try{
-        let typeExists = schema.type;
-    }
-    catch{
-        throw Error("Found nonexistent schema, this shouldn't happen.");
-    }
+    try{ let typeExists = schema.type; }
+    catch{ throw Error("Found nonexistent schema, this shouldn't happen."); }
+    let indexed = false;
+    if(traverseObject(["x-dictionary-key"], schema)){ indexed = true; }
+    if(traverseObject(["x-mapped-definition"], schema)){ indexed = true; }
+    if(traverseObject(["x-enum-values"], schema)){ indexed = true; }
     switch(schema.type){
         case "object":
-            data = processTypeObject(key_list, schema, data);
+            data = processTypeObject(key_list, schema, data, indexed);
             return transformData(key_list, schema, data);
         case "array":
-            data = processTypeArray(key_list, schema, data);
+            data = processTypeArray(key_list, schema, data, indexed);
             return transformData(key_list, schema, data);
         default:
             //If it's not an array or object, it should be able to be mapped from schema value -> data value.
-            data = processTypeBasic(key_list, schema, data);
+            data = processTypeBasic(key_list, schema, data, indexed);
             return transformData(key_list, schema, data);
     }
 }
@@ -159,7 +159,7 @@ function propertyTypeProcessor(key_list, schema, data){
 //Thankfully, arrays are just lists of other types, so this logic is easy.
 //Currently, Bungie only ever puts one type of data into arrays at endpoints, so that's why the logic checks for
 // If more than one at a time ever show up, this function is not daijoubu
-function processTypeArray(key_list, schema, data){
+function processTypeArray(key_list, schema, data, indexed){
     //all arrays i've found store the reference in the "items" keyword, so add that to the list of assumptions I've made here.
     let itemlist = traverseObject(["items", "$ref"], schema);
     if(itemlist){
@@ -182,7 +182,7 @@ function processTypeArray(key_list, schema, data){
 
 //Processes what we find at the bottom of the endless schemas upon schemas: your good 'ol bools, ints, strings, and etc.
 //data actually gets mapped to points here. any custom mapping for specific data (like hash values -> corresponding def) will occur here too
-function processTypeBasic(key_list, schema, data){ 
+function processTypeBasic(key_list, schema, data, indexed){ 
     return data; 
 }
 
@@ -193,20 +193,20 @@ function processTypeBasic(key_list, schema, data){
 //  -additionalProperties
 //  -allOf
 //If one appears with more, i will cry.
-function processTypeObject(key_list, schema, data){
+function processTypeObject(key_list, schema, data, indexed){
     if(schema.properties)
-        return processObjectProperties(key_list, schema, data); //Handles the data recursion
+        return processObjectProperties(key_list, schema, data, indexed); //Handles the data recursion
     else if(schema.additionalProperties)
-        return processObjectAdditionalProperties(key_list, schema, data);
+        return processObjectAdditionalProperties(key_list, schema, data, indexed);
     else if(schema.allOf)
-        return processObjectAllOfRef(key_list, schema, data);
+        return processObjectAllOfRef(key_list, schema, data, indexed);
     else 
         throw Error("This object has no properties, God help us all."); //We really shouldn't ever come here, so adding a throw here as a red flag that somethin's up.
 }
 
 //Some appearances of objects in the schema ref store values in the properties keyword.
 // this handles that data and returns the mapped values.
-function processObjectProperties(key_list, schema, data){
+function processObjectProperties(key_list, schema, data, indexed){
     let schema_prop_list = schema.properties;
     let parsed_properties = {};
     for(property in data){
@@ -240,8 +240,13 @@ function processObjectProperties(key_list, schema, data){
                 //if the length of keys doesn't match, it's either undocumented or indexed. either way, I can't do anything further with it without knowing the difference
                 //  So I'll just return the data as is for now, and just won't be able to run any data transformations on subproperties of this
                 if(Object.keys(schema_prop_list).length != Object.keys(data).length){
+                    if(indexed){
+                        console.log("Well, matching # of keys didn't help, BUT this item appears to have one of 3 headers: x-dictionary-key, x-mapped-definition, x-enum-values. So we're going to assume it's indexed.");
+                    }
+                    else {
+                        console.log("CANNOT TELL THE DIFFERENCE HERE");
+                    }
                     parsed_properties[property] = data[property];
-                    console.log("Well, found a property ("+property+") that doesn't show up in the API docs. Assuming it's undocumented or the key is indexed, since the number of properties don't line up.");
                     continue;
                 }
                 else{
@@ -275,7 +280,7 @@ function processObjectProperties(key_list, schema, data){
 // this handles that data and returns the mapped values.
 // Realistically, this could appear along with the properties keyword, and would only get the data that wasn't processed there.
 // But that doesn't happen in the api currently, and that logic is hard, so it'll get implemented after a blueprint is established.
-function processObjectAdditionalProperties(key_list, schema, data){
+function processObjectAdditionalProperties(key_list, schema, data, indexed){
     //additionalProperties tend to follow a schema reference, so we handle that recursion here.
     let propSchema = traverseObject(["additionalProperties", "$ref"], schema);
     if(propSchema){
@@ -290,7 +295,7 @@ function processObjectAdditionalProperties(key_list, schema, data){
 
 //Some objects in the doc, like the components, have a schema ref stored in an allOf keyword.
 // This handles that and returns the values.
-function processObjectAllOfRef(key_list, schema, data){
+function processObjectAllOfRef(key_list, schema, data, indexed){
     let propSchema = traverseObject(["allOf", 0, "$ref"], schema);
     if(propSchema){
         key_list = parseLocalSchemaLink(propSchema);
