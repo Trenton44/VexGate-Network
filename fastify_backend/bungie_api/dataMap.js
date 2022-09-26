@@ -217,11 +217,12 @@ function processKeywordAllOf(key_array, schema, data, indexed){
         throw Error("First instance of allOf without a $ref, don't currently support this.");
     return propertyProcessController(key_array, schema, data, indexed, false); //we pass false to isNewSchema by default, as allOf should only ever reference another schema.
 }
-
+/*
 let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
 let request_type = "get";
 let code = "200";
 let blah = processAPIEndpoint(api_doc_link, request_type, code, test_data);
 const fs = require('fs');
 fs.writeFile("parsedcharacterdata.json", JSON.stringify(blah), (result) => console.log("success"));
+*/
 module.exports = processAPIEndpoint;

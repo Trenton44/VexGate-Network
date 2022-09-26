@@ -5,7 +5,7 @@ const d2helper = require(path.join(__dirname, '..', '..', '/bungie_api/wrapper.j
 const d2api = require(path.join(__dirname, '..', '..', '/bungie_api/api.js'));
 
 
-const data_processor = require(path.join(__dirname, '..', '..', '/bungie_api/build_api_response.js'));
+const data_processor = require(path.join(__dirname, '..', '..', '/bungie_api/dataMap.js'));
 
 
 async function api_characterIds(request, reply){
@@ -37,7 +37,7 @@ async function api_characterData(request, reply){
         let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
         let request_type = "get";
         let code = "200";
-        let parsed_data = data;//data_processor(api_doc_link, request_type, code, data);
+        let parsed_data = data_processor(api_doc_link, request_type, code, data);
         return parsed_data;
     }).catch( (error) => {
         console.log(error)
