@@ -2,7 +2,6 @@ const api_doc = require("./openapi.json");
 const test_data = require("./characterdata.json");
 
 const transformConfig = require("./transform_data.js");
-const { parse } = require("dotenv");
 
 
 // Helper functions for parsing/interacting with data
@@ -92,6 +91,13 @@ function processAPIEndpoint(path, request_type, status_code, endpoint_data){
 //  We need to know that, so "indexed" lets us figure that out. However, some schemas, like most arrays, just hold a reference to the actual data's schema.
 //  We need to pass the knowledge of being "indexed" along, so in cases where we aren't using a brand new schema (like processing array types or objects with additionalProperties), we pass "isNewSchema" as false, so "indexed" isn't reset.
 function propertyProcessController(key_array, schema, data, indexed, isNewSchema){
+    console.log("");
+    console.log("NEW PROPERTY:");
+    console.log("SCHEMA: ");
+    console.log(schema);
+    console.log("DATA");
+    console.log(data);
+    console.log("");
     if(isNewSchema)
         indexed = dataIndexed(key_array, schema, data);
     switch(schema.type){
@@ -123,6 +129,9 @@ function processArraySchema(key_array, schema, data, indexed){
         schema = schema.items;
         isNewSchema = false;
     }
+    console.log("");
+    console.log("key_array:"+key_array);
+    console.log(data);
     let new_data = data.map( (current, index) => { return propertyProcessController(key_array, schema, current, indexed, isNewSchema); });
     return new_data;
 }
@@ -203,8 +212,15 @@ function processKeywordAdditionalProperties(key_array, schema, data, indexed){
         schema = schema.additionalProperties;
         
     }
-    //isNewSchema false by default, if indexed is true it means all keys in the data being used by the next schema are indexed
-    return propertyProcessController(key_array, schema, data, indexed, false); 
+    
+    let parsed_properties = {};
+    for(property in data){
+        // iterate through the list. we don't have to care about the keys being indexed or not
+        // because additionalProperties should only ever hold one schema.
+        parsed_properties[property] = propertyProcessController(key_array, schema, data[property], indexed, false); 
+        // NOTE: isNewSchema false by default, if indexed is true it means all keys in the data being used by the next schema are indexed
+    }
+    return parsed_properties;
 }
 
 function processKeywordAllOf(key_array, schema, data, indexed){
@@ -217,12 +233,12 @@ function processKeywordAllOf(key_array, schema, data, indexed){
         throw Error("First instance of allOf without a $ref, don't currently support this.");
     return propertyProcessController(key_array, schema, data, indexed, false); //we pass false to isNewSchema by default, as allOf should only ever reference another schema.
 }
-/*
+
 let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
 let request_type = "get";
 let code = "200";
 let blah = processAPIEndpoint(api_doc_link, request_type, code, test_data);
 const fs = require('fs');
 fs.writeFile("parsedcharacterdata.json", JSON.stringify(blah), (result) => console.log("success"));
-*/
+
 module.exports = processAPIEndpoint;
