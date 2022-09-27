@@ -31,7 +31,8 @@ async function api_characterData(request, reply){
     let membership_type = request.session.user_data.d2_account.membership_type;
     
     //components in order: Characters, Inventory, Equipment, item perks, instancedItem's data, & item stats
-    return d2api.GetCharacter(token, d2_membership_id, character_id, { components: ["200", "201", "205", "302", "300", "304"] }, membership_type)
+    let list = { components: ["200", "201", "205", "302", "300", "304"] };
+    return d2api.GetCharacter(token, d2_membership_id, character_id, list, membership_type)
     .then( (result) => {
         let data = result.data.Response;
         let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/";
@@ -50,12 +51,17 @@ async function test(request, reply){
     let character_id = request.query.character_id;
     let token = request.session.auth_data.access_token;
     let membership_type = request.session.user_data.d2_account.membership_type;
-    
-    return d2api.GetCharacter(token, d2_membership_id, character_id, { components: ["200"] }, membership_type)
+    let list = { components: ["100", "101", "102", "103", "104", "105", "200", "201", "202", "203", "204", "205", "300", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "400", "401", "402", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300"] };
+    console.log("sending request");
+    return d2api.GetProfile(token, d2_membership_id,  list, membership_type)
     .then( (result) => {
+        console.log("request received");
         let data = result.data.Response;
-        
-        return [data, parsed_data];
+        let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/";
+        let request_type = "get";
+        let code = "200";
+        let parsed_data = data_processor(api_doc_link, request_type, code, data);
+        return parsed_data;
     }).catch( (error) => {
         return error;
     });

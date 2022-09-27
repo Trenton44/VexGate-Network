@@ -14,11 +14,8 @@ const transform_config = {
                     }
                     data.stats = altered_stats;
                     data.race_data = d2_definitions.DestinyRaceDefinition[data.raceHash];
-                    console.log(d2_definitions.DestinyRaceDefinition[data.raceHash]);
                     data.gender_data = d2_definitions.DestinyGenderDefinition[data.genderHash];
-                    console.log(d2_definitions.DestinyGenderDefinition[data]);
                     data.class_data = d2_definitions.DestinyClassDefinition[data.classHash];
-                    console.log(d2_definitions.DestinyClassDefinition[data]);
                     return data;
                 }
             }

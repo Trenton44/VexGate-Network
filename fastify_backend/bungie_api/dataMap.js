@@ -91,13 +91,6 @@ function processAPIEndpoint(path, request_type, status_code, endpoint_data){
 //  We need to know that, so "indexed" lets us figure that out. However, some schemas, like most arrays, just hold a reference to the actual data's schema.
 //  We need to pass the knowledge of being "indexed" along, so in cases where we aren't using a brand new schema (like processing array types or objects with additionalProperties), we pass "isNewSchema" as false, so "indexed" isn't reset.
 function propertyProcessController(key_array, schema, data, indexed, isNewSchema){
-    console.log("");
-    console.log("NEW PROPERTY:");
-    console.log("SCHEMA: ");
-    console.log(schema);
-    console.log("DATA");
-    console.log(data);
-    console.log("");
     if(isNewSchema)
         indexed = dataIndexed(key_array, schema, data);
     switch(schema.type){
@@ -129,9 +122,6 @@ function processArraySchema(key_array, schema, data, indexed){
         schema = schema.items;
         isNewSchema = false;
     }
-    console.log("");
-    console.log("key_array:"+key_array);
-    console.log(data);
     let new_data = data.map( (current, index) => { return propertyProcessController(key_array, schema, current, indexed, isNewSchema); });
     return new_data;
 }
