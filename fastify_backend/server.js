@@ -11,10 +11,7 @@ const mongo_store = require('connect-mongo');
 const express_session = require('express-session'); //connect-mongo requires this to be installed, but it is unused
 
 //External functions
-const api_authrequired_endpoints = require('./endpoints/authorized/api_endpoints.js');
-const webpage_authrequired_endpoints = require('./endpoints/authorized/webpage_endpoints.js');
-const api_noauth_endpoints = require('./endpoints/unauthorized/api_endpoints.js');
-const webpage_noauth_endpoints = require('./endpoints/unauthorized/webpage_endpoints.js');
+const endpoints = require("./server_endpoints.js");
 
 //Static file locations 
 const compiled_front_end = path.join(__dirname, '..', '/react_frontend/build');
@@ -76,10 +73,10 @@ server_app.register(fastifySession,{
 server_app.register(require('@fastify/static'), { root: compiled_front_end, prefix: '/assets/' });
 
 //register all endpoints with this instance of fastify.
-server_app.register(api_authrequired_endpoints);
-server_app.register(webpage_authrequired_endpoints);
-server_app.register(api_noauth_endpoints);
-server_app.register(webpage_noauth_endpoints);
+server_app.register(endpoints.api_auth);
+server_app.register(endpoints.webpage_auth);
+server_app.register(endpoints.api_noauth);
+server_app.register(endpoints.webpage_noauth);
 
 //Start server
 server_app.listen({ port: process.env.PORT_NUMBER, host: '0.0.0.0' }, function(error, address){

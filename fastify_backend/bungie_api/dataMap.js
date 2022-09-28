@@ -1,9 +1,6 @@
 const api_doc = require("./openapi.json");
 //const test_data = require("./characterdata.json");
 
-const transformConfig = require("./transform_data.js");
-
-
 // Helper functions for parsing/interacting with data
 
 //  Traverses through a given object, one key at a time (using an array of keys), to find a key-value. 
@@ -48,10 +45,8 @@ function dataIndexed(key_array, schema, data){
     let schema_keys = Object.keys(schema);
     for(i in schema_keys){
         for(z in relevant_headers){
-            if(schema_keys[i] == relevant_headers[z]){
+            if(schema_keys[i] == relevant_headers[z])
                 return true;
-            }
-                
         }
     }
     return false;
