@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter , Routes, Route, useParams } from "react-router-dom";
+import { HashRouter , Routes, Route, useParams } from "react-router-dom";
 import LoginPage from './login_page.js';
 import UserPage from './user.js';
 
@@ -14,15 +14,18 @@ function RenderUserPage(){
 }
 
 root.render(
-  <BrowserRouter>
+<div>
+  <p>Hello There!</p>
+  <a href="https://75.101.183.245:3000/api/oAuthRequest">Login to Service</a>
+</div>
+);
+/*
+<HashRouter>
       <Routes> 
         <Route path="/">
           <Route path="login" element={ <LoginPage /> }/>
           <Route path="user/:id" element={ <RenderUserPage /> } />
         </Route>
       </Routes>
-    </BrowserRouter>
-);
-/*
-
+    </HashRouter>
 */
