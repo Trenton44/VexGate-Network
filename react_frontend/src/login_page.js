@@ -12,11 +12,7 @@ class LoginPage extends React.Component {
         this.state = {};
     }
     render(){
-        return(
-            <Container>
-            </Container>
-            
-        );
+        return(<a href="/api/oAuthRequest">Login</a>);
     }
 }
 

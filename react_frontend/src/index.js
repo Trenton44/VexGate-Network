@@ -14,13 +14,15 @@ function RenderUserPage(){
 }
 
 root.render(
-  <RenderUserPage />
+  <BrowserRouter>
+      <Routes> 
+        <Route path="/">
+          <Route path="login" element={ <LoginPage /> }/>
+          <Route path="user/:id" element={ <RenderUserPage /> } />
+        </Route>
+      </Routes>
+    </BrowserRouter>
 );
 /*
-<BrowserRouter>
-  <Routes> 
-    <Route path="/login" element={ <LoginPage /> }/>
-    <Route path="/" element={ <RenderUserPage /> } />
-  </Routes>
-</BrowserRouter>
+
 */

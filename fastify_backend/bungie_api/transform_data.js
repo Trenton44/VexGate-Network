@@ -7,6 +7,30 @@ const bungie_root = "https://www.bungie.net";
 const transform_config = {
     "components": {
         "schemas": {
+            "Destiny.Responses.DestinyProfileResponse": {
+                "transform": function(data){
+                    //Gonna need to add a way to auto process components later so they all get handled automagically, probably use the x-type-header for them.
+                    let new_data = {};
+                    new_data.characters = {};
+                    console.log("Ids: "+data.profile.data.characterIds);
+                    for(i in data.profile.data.characterIds){
+                        let id = data.profile.data.characterIds[i];
+                        new_data.characters[id] = {
+                            equipment: data.characterEquipment.data[id].items,
+                            inventory: data.characterInventories.data[id].items,
+                            render_data: data.characterRenderData.data[id],
+                            character: data.characters.data[id]
+                        };
+                    }
+                    new_data.profile_data = {
+                        gamertag: data.profile.data.userInfo.bungieGlobalDisplayName + "#" + data.profile.data.userInfo.bungieGlobalDisplayNameCode,
+                        last_played: data.profile.data.dateLastPlayed,
+                        currencies: data.profileCurrencies.data.items,
+                        inventory: data.profileInventory.data.items
+                    };
+                    return new_data;
+                }
+            },
             "SingleComponentResponseOfDestinyCharacterComponent":{
                 "transform": function(data){ return data.data; }
             },

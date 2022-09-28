@@ -10,17 +10,18 @@ class UserPage extends React.Component {
         super(props);
         this.state = {
             id: window.location.href.split('/')[4],
-            data_loaded: false
+            data_loaded: false,
+            character_data: {}
         };
     }
-    fetchCharacterData = () =>{
+    fetchProfileData = () =>{
         let query = {
             d2_membership_id: window.location.href.split('/')[4]
         };
         return fetch("/api/profileData?"+ new URLSearchParams(query).toString())
         .then( (result) => result.json() )
         .then( (result) => {
-            console.log(result);
+            this.setState({ character_data: result.characters, profile_data: result.profile_data, data_loaded: true });
         } )
         .catch( (error) => {
             console.error(error);
@@ -28,9 +29,10 @@ class UserPage extends React.Component {
         });
     }
     componentDidMount(){
+        this.fetchProfileData();
     }
     render(){
-        console.log("Loaded: "+this.state.data_loaded);
+        let list = Object.keys(this.state.character_data);
         if(!this.state.data_loaded){
             return (<p>Put a loading screen here at some point.</p>);
         }
@@ -38,13 +40,13 @@ class UserPage extends React.Component {
             <>
             <Container fluid>
                 <Row style={{width: "40%"}}>
-                    <Tabs>
-                        <Tab eventKey="character-1" title="character-1">placeholder-1</Tab>
-                            <Character > </Character>
-                        <Tab eventKey="character-2" title="character-2">placeholder-2</Tab>
-                            <Character > </Character>
-                        <Tab eventKey="character-3" title="character-3">placeholder-3</Tab>
-                            <Character > </Character>
+                    <Tabs variant="pills" justify>
+                        <Tab eventKey="character-1" title="character-1">  <Character id={list[0]} data={ this.state.character_data[list[0]] }> </Character> </Tab>
+                           
+                        <Tab eventKey="character-2" title="character-2"> <Character id={list[1]} data={ this.state.character_data[list[1]] }> </Character> </Tab>
+                            
+                        <Tab eventKey="character-3" title="character-3"> <Character id={list[2]} data={ this.state.character_data[list[2]] }> </Character> </Tab>
+                            
                     </Tabs>
                 </Row>
 

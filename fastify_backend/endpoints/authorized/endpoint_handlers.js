@@ -27,9 +27,9 @@ async function api_profileData(request, reply){
     let d2_membership_id = request.query.d2_membership_id;
     let membership_type = request.session.user_data.d2_account.membership_type;
     let token = request.session.auth_data.access_token;
-    let list = { compoents: ["100", "102", "103", "200", "201", "203", "205", "300"]};
+    let list = { components: ["100", "102", "103", "200", "201", "203", "205", "300"]};
     return d2api.GetProfile(token, d2_membership_id, list, membership_type)
-    .then( (data) => {
+    .then( (result) => {
         let data = result.data.Response;
         let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/";
         let request_type = "get";

@@ -3,24 +3,14 @@ import React from 'react';
 class Character extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            character_id: "",
-            data: "",
-        };
-    }
-    
-    componentDidUpdate(prevProps, prevState, snapshot){
-        if(prevProps.id != this.props.id){
-            this.fetchCharacterData();
-        }
-        if(prevState.data !== this.state.data){
-            console.log(this.state.data);
-        }
+        this.state = {};
     }
     componentDidMount(){
+        console.log(this.props.id);
     }
     render(){
-        return(<p>Hello</p>);
+        console.log(this.props.data);
+        return(<p>{ JSON.stringify(this.props.data) }</p>);
     }
 }
 

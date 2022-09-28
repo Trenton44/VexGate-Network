@@ -1,5 +1,5 @@
 const api_doc = require("./openapi.json");
-const test_data = require("./characterdata.json");
+//const test_data = require("./characterdata.json");
 
 const transformConfig = require("./transform_data.js");
 
