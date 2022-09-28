@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@fastify/cookie": "^8.1.0",
+    "@fastify/cors": "^8.1.0",
     "@fastify/mongodb": "^6.1.0",
     "@fastify/session": "^10.0.0",
     "@fastify/static": "^6.5.0",

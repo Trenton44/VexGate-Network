@@ -9,7 +9,7 @@ const fastifySession = require('@fastify/session');
 const fastifyCookie = require('@fastify/cookie');
 const mongo_store = require('connect-mongo');
 const express_session = require('express-session'); //connect-mongo requires this to be installed, but it is unused
-
+const cors = require("@fastiy/cors");
 //External functions
 const endpoints = require("./server_endpoints.js");
 
@@ -70,6 +70,9 @@ server_app.register(fastifySession,{
 });
 
 //register plugin to allow delivery of static content (aka: the front-end)
+server_app.register(cors, {
+    origin: ["put github pages here.a". process.env.BUNGIE_WEBROOT]
+});
 server_app.register(require('@fastify/static'), { root: compiled_front_end, prefix: '/assets/' });
 
 //register all endpoints with this instance of fastify.
