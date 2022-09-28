@@ -23,6 +23,24 @@ async function api_characterIds(request, reply){
     });
 }
 
+async function api_profileData(request, reply){
+    let d2_membership_id = request.query.d2_membership_id;
+    let membership_type = request.session.user_data.d2_account.membership_type;
+    let token = request.session.auth_data.access_token;
+    let list = { compoents: ["100", "102", "103", "200", "201", "203", "205", "300"]};
+    return d2api.GetProfile(token, d2_membership_id, list, membership_type)
+    .then( (data) => {
+        let data = result.data.Response;
+        let api_doc_link = "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/";
+        let request_type = "get";
+        let code = "200";
+        let parsed_data = data_processor(api_doc_link, request_type, code, data);
+        return parsed_data;
+    }).catch( (error) => {
+        console.log(error);
+        return Error("Nope.");
+    });
+}
 async function api_characterData(request, reply){
     request.log.info("User is requesting to access a character's data under this d2 account.");
     let d2_membership_id = request.query.d2_membership_id;
@@ -66,5 +84,5 @@ async function test(request, reply){
         return error;
     });
 }
-module.exports = {api_characterIds, api_characterData, test}
+module.exports = {api_characterIds, api_characterData, api_profileData, test}
 

@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter , Routes, Route, useParams } from "react-router-dom";
-//import Character from './character.js';
-import LoginPage from './login.js';
+import LoginPage from './login_page.js';
 import UserPage from './user.js';
-import NavigationBar from './navigation';
-import MainContent from './main_content.js';
 
-
+import CharacterEmblem from './character_emblem.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function RenderUserPage(){
@@ -16,15 +14,13 @@ function RenderUserPage(){
 }
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-    <NavigationBar />
-      <Routes> 
-        <Route path="/" element = {<MainContent />} >
-          <Route path="login" element={ <LoginPage /> }/>
-          <Route path="user/:id" element={ <RenderUserPage /> } />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <RenderUserPage />
 );
+/*
+<BrowserRouter>
+  <Routes> 
+    <Route path="/login" element={ <LoginPage /> }/>
+    <Route path="/" element={ <RenderUserPage /> } />
+  </Routes>
+</BrowserRouter>
+*/

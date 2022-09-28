@@ -13,6 +13,7 @@ let apiAuthorizedEndpoints = (fastify, options, next) => {
     fastify.addHook('preHandler', validateAccess);
 
     //endpoints accessible to appliation
+    fastify.get('/api/profileData', handler.api_profileData);
     fastify.get('/api/characterIds', handler.api_characterIds); //needs a schema verifying request had d2_membership_id as a querystring
     fastify.get('/api/characterData', handler.api_characterData); //needs a schema verifying request has querystring with d2_membership_id and characterId
     fastify.get('/api/test', handler.test);

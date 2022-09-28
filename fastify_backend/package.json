@@ -13,7 +13,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "",
-    "devstart": "nodemon server.js"
+    "devstart": "nodemon server.js",
+    "devtest": "nodemon testserver.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
