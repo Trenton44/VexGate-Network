@@ -1,19 +1,20 @@
 import React from 'react';
 
-import User from './user.js';
-import LoadingScreen from './loading.js';
-import LoginScreen from './login.js';
+import Structure from './structure.js';
+import LoadingScreen from './loading_screen/loading.js';
+import LoginScreen from './login_screen/login.js';
 
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            authenticated: false,
-            loaded: false
+            authenticated: true,
+            loaded: true
         };
     }
     componentDidMount(){
+        return;
         fetch(process.env.API_SERVER+"/api/authvalidated")
         .then( (result) => result.json() )
         .then( (result) => this.setState({loaded: true, authenticated: true, id: result}) )
@@ -27,7 +28,7 @@ class App extends React.Component {
             return <LoadingScreen />
         if(!this.state.authenticated)
             return <LoginScreen />
-        return <User id={ this.state.id } />
+        return <Structure id={ this.state.id } />
     }
 }
 
