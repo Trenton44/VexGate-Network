@@ -5,7 +5,7 @@ class LoginScreen extends React.Component {
         super(props);
     }
     render(){
-        return( <a href={ process.env.API_SERVER+"/api/login"}>Login</a> ); 
+        return( <a href="https://75.101.183.245:3000/api/login">Login</a> ); 
     }
 }
 
