@@ -14,15 +14,17 @@ class App extends React.Component {
         };
     }
     componentDidMount(){
-        fetch("https://75.101.183.245:3000/api/authvalidated")
+        /*fetch("https://75.101.183.245:3000/api/authvalidated")
         .then( (result) => result.json() )
         .then( (result) => {
+            if(!result.ok)
+                return Promise.reject(result);
             this.setState({ authenticated: true, id: result});
-        } )
+        })
         .catch( (error) => {
             console.log(error);
             this.setState({ loaded: true });
-        });
+        });*/
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         if(this.state.id !== prevState.id){
@@ -44,6 +46,9 @@ class App extends React.Component {
         }
     }
     render(){
+        console.log(this.state.loaded);
+        console.log(this.state.authenticated);
+        console.log();
         if(!this.state.loaded)
             return <LoadingScreen />
         if(!this.state.authenticated)
