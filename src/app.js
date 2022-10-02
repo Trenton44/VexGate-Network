@@ -14,7 +14,7 @@ class App extends React.Component {
         };
     }
     componentDidMount(){
-        /*fetch("https://75.101.183.245:3000/api/authvalidated")
+        return fetch(process.env.REACT_APP_API+"/api/authvalidated")
         .then( (result) => result.json() )
         .then( (result) => {
             if(!result.ok)
@@ -24,11 +24,11 @@ class App extends React.Component {
         .catch( (error) => {
             console.log(error);
             this.setState({ loaded: true });
-        });*/
+        });
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         if(this.state.id !== prevState.id){
-            return fetch("https://75.101.183.245:3000/api/profileData?"+new URLSearchParams({ d2_membership_id: this.state.id }).toString())
+            return fetch(process.env.REACT_APP_API+"/api/profileData?"+new URLSearchParams({ d2_membership_id: this.state.id }).toString())
             .then( (result) => result.json() )
             .then( (result) => {
                 console.log(result);
@@ -42,18 +42,15 @@ class App extends React.Component {
             .catch( (error) => {
                 console.log(error);
                 this.setState({ loaded: true });
-            })
+            });
         }
     }
     render(){
-        console.log(this.state.loaded);
-        console.log(this.state.authenticated);
-        console.log();
         if(!this.state.loaded)
-            return <LoadingScreen />
+            return (<LoadingScreen />);
         if(!this.state.authenticated)
-            return <LoginScreen />
-        return <Structure id={ this.state.id } />
+            return (<LoginScreen />);
+        return(<Structure id={ this.state.id } />);
     }
 }
 
