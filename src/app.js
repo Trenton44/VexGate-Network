@@ -14,7 +14,7 @@ class App extends React.Component {
         };
     }
     componentDidMount(){
-        return fetch(process.env.REACT_APP_API+"/api/authvalidated")
+        return fetch(process.env.REACT_APP_API+"/authvalidated")
         .then( (result) => result.json() )
         .then( (result) => {
             if(!result.ok)
@@ -28,7 +28,7 @@ class App extends React.Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         if(this.state.id !== prevState.id){
-            return fetch(process.env.REACT_APP_API+"/api/profileData?"+new URLSearchParams({ d2_membership_id: this.state.id }).toString())
+            return fetch(process.env.REACT_APP_API+"/profileData?"+new URLSearchParams({ d2_membership_id: this.state.id }).toString())
             .then( (result) => result.json() )
             .then( (result) => {
                 console.log(result);
