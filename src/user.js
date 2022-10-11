@@ -18,7 +18,7 @@ class UserPage extends React.Component {
         let query = {
             d2_membership_id: window.location.href.split('/')[4]
         };
-        return fetch(process.env.REACT_APP_API+"/profileData?"+ new URLSearchParams(query).toString())
+        return fetch(process.env.REACT_APP_API+"/profileData?"+ new URLSearchParams(query).toString(),{ credentials: "include" })
         .then( (result) => result.json() )
         .then( (result) => {
             this.setState({ character_data: result.characters, profile_data: result.profile_data, data_loaded: true });
