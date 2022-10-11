@@ -5,7 +5,7 @@ class LoginScreen extends React.Component {
         super(props);
     }
     render(){
-        return( <a href={ process.env.REACT_APP_AP+"/login" } >Login</a> ); 
+        return( <a href={ process.env.REACT_APP_API+"/login" } >Login</a> ); 
     }
 }
 

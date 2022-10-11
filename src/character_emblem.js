@@ -18,8 +18,8 @@ class CharacterEmblem extends React.Component {
             d2_membership_id: window.location.href.split('/')[4],
             character_id: this.props.id
         };
-        console.log("/api/characterData?"+ new URLSearchParams(query).toString());
-        return fetch("/api/characterData?"+ new URLSearchParams(query).toString())
+        console.log(REACT_APP_API+"/characterData?"+ new URLSearchParams(query).toString());
+        return fetch(REACT_APP_API+"/characterData?"+ new URLSearchParams(query).toString())
         .then( (result) => result.json() )
         .then( (result) => {
             result = result.character;
