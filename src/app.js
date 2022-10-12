@@ -20,7 +20,7 @@ class App extends React.Component {
             else { return result.json(); }
         })
         .then( (result) => {
-            this.setState({ authenticated: true, id: result });
+            this.setState({ authenticated: true, id: result.d2_membership_id });
         })
         .catch( (error) => {
             console.error(error);
