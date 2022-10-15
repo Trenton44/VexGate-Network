@@ -1,0 +1,30 @@
+.carousel-container {
+    position: absolute !important;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    height: 15rem;
+}
+
+.carousel-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items:center;
+    flex-wrap: nowrap;
+}
+.carousel-content > div {
+    margin: 0 1em 0 1em;
+}
+
+.carousel-content > div:nth-child(2) {
+    transform: scale(1.3);
+}

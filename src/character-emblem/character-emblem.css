@@ -1,0 +1,25 @@
+.emblem-container {
+    justify-content: right;
+}
+
+.emblem-overlay {
+    width: 80%;
+    padding: 0 !important;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.emblem-overlay > div {
+    display: flex;
+    justify-content: left;
+}
+
+.emblem-overlay > div > p {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 1em;
+    margin: 0;
+    color: white;
+}
