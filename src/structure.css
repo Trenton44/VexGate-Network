@@ -1,14 +1,12 @@
-.sidebar-nav {
-    width: 5rem;
-    height: 20rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.sidebar-nav * {
-    position: relative;
-    width: 100%;
+.characters-grid-container {
     height: 100%;
-    transform: rotate(90deg);
+    
+}
+.characters-grid-row {
+    height: 33%;
+    align-items: center;
+}
+.characters-grid-row > div {
+    display: flex;
+    justify-content: center;
 }
