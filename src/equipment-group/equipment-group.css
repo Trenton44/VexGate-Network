@@ -1,4 +1,12 @@
-.top-div {
-    position: absolute;
-    
+.equipment-grid-container {
+    width: 100%;
+    height: 100%;
+}
+.equipment-grid-row {
+    align-items: center;
+    flex: 1 1 auto;
+}
+.equipment-grid-row > div {
+    display: flex;
+    justify-content: center;
 }
