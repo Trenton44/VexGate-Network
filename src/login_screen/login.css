@@ -1,0 +1,21 @@
+.login-screen {
+    background-image: url("../assets/login-portal.jpg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.login-card {
+    max-width: 30rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    justify-content: center;
+    align-items: center;
+}
+.login-card > div > a{
+    margin: auto;
+    transform: translate(50%, 0);
+}
