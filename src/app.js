@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Structure from './structure.js';
-import LoadingScreen from './loading_screen/loading.js';
-import LoginScreen from './login_screen/login.js';
+import LoadingScreen from './loading-screen/loading.js';
+import LoginScreen from './login-screen/login.js';
 
 //function runs on first component load, works as a health checker and initial cookie setter.
 function pingAPI(path){
