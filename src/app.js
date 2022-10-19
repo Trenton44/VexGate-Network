@@ -13,12 +13,21 @@ function pingAPI(path){
     })
     .catch( (error) => { return Promise.reject(error); });
 }
+
+function GetProfile(){
+    let endpoint = process.env.REACT_APP_API+"/profile";
+    let components = ["Profiles", "ProfileInventories", "ProfileCurrencies", "Characters", "CharacterInventories", "CharacterRenderData", "CharacterEquipment", "ItemInstances"];
+    let url = new URL(endpoint);
+    url.search = new URLSearchParams({ components: components });
+    return pingAPI(url);
+}
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            authenticated: false,
-            available: true,
+            destinyAccountId: false,
+            available: false,
+            bungie_available: true,
             loaded: false
         };
     }
@@ -26,12 +35,12 @@ class App extends React.Component {
         return pingAPI(process.env.REACT_APP_API+"/")
         .then( (result) => {
             console.log("API is up and available.");
-            return pingAPI(process.env.REACT_APP_API+"/authvalidated")
-            .then( (result) => this.setState({ authenticated: true, id: result.d2_membership_id }))
-            .catch( (error) => {
-                console.log("User is not authenticated with the API.");
-                this.setState({ loaded: true });
-            });
+            this.setState({ 
+                destinyAccountId: result.validated, 
+                available: result.available,
+                bungie_available: result.bungie_service,
+                loaded: true
+            })
         })
         .catch( (error) => {
             console.log("API Server is Currently unavailable. Reason: ");
@@ -43,8 +52,8 @@ class App extends React.Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         console.log(this.state);
-        if(this.state.id !== prevState.id){
-            return pingAPI(process.env.REACT_APP_API+"/profileData?"+new URLSearchParams({ d2_membership_id: this.state.id }).toString())
+        if(this.state.destinyAccountId !== prevState.destinyAccountId){
+            return GetProfile()
             .then( (result) => {
                 console.log("User data retrieval successful.");
                 this.setState({
@@ -64,9 +73,10 @@ class App extends React.Component {
             return (<p>The API Server is Currently Unavailable</p>);
         if(!this.state.loaded)
             return (<LoadingScreen />);
-        if(!this.state.authenticated)
+        if(!this.state.destinyAccountId)
             return (<LoginScreen />);
-        return(<Structure id={ this.state.id } />);
+        return <a>Hello</a>
+        return(<Structure id={ this.state.destinyAccountId } data={ this.state.character_data } />);
     }
 }
 
